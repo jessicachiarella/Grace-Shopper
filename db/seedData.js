@@ -112,7 +112,7 @@ async function createProducts() {
         price: 65,
         categoryId: 1,
         inStock: true,
-        image_url: true,
+        image_url: "zz.jpeg",
         
       },
       {
@@ -121,7 +121,7 @@ async function createProducts() {
         price: 75,
         categoryId: 1,
         inStock: true,
-        image_url: true,
+        image_url: "snake.jpeg",
         
       },
       {
@@ -130,7 +130,7 @@ async function createProducts() {
         price: 150,
         categoryId: 2,
         inStock: true,
-        image_url: true,
+        image_url: "monstera.jpeg",
         
       },
       {
@@ -139,7 +139,7 @@ async function createProducts() {
         price: 125,
         categoryId: 2,
         inStock: true,
-        image_url: true,
+        image_url: "elephant.jpeg",
         
       },
       {
@@ -148,7 +148,7 @@ async function createProducts() {
         price: 40,
         categoryId: 2,
         inStock: true,
-        image_url: true,
+        image_url: "hoya.jpeg",
         
       },
       {
@@ -157,7 +157,7 @@ async function createProducts() {
         price: 400,
         categoryId: 3,
         inStock: true,
-        image_url: true,
+        image_url: "fiddle.jpeg",
         
       },
       {
@@ -166,7 +166,7 @@ async function createProducts() {
         price: 100,
         categoryId: 3,
         inStock: true,
-        image_url: true,
+        image_url: "rubber.jpeg",
         
       },
       {
@@ -175,7 +175,7 @@ async function createProducts() {
         price: 40,
         categoryId: 3,
         inStock: true,
-        image_url: true,
+        image_url: "peppero.jpeg",
         
       },
       {
