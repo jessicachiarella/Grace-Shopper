@@ -208,7 +208,7 @@ async function createProducts() {
       
     ];
     const products = await Promise.all(
-      productsToCreate.map(createProducts)
+      productsToCreate.map(createProduct)
     );
 
     console.log("products created:");
@@ -236,7 +236,7 @@ async function createCategories() {
         name: "Pots"},
     ];
     const categories = await Promise.all(
-      categoriesToCreate.map(createCategories)
+      categoriesToCreate.map(createCategory)
     );
 
     console.log("categories created:");
@@ -249,7 +249,33 @@ async function createCategories() {
   }
 }
 
-async function createOrderItem() {
+async function createCarts() {
+  try {
+    console.log("Starting to create cart...");
+
+    const cartToCreate = [
+      {
+        userId: 2,
+        isPurchased: true },
+      {
+        userId: 3,
+      }
+    ];
+    const cart = await Promise.all(
+      cartToCreate.map(createCart)
+    );
+
+    console.log("cart created:");
+    console.log(cart);
+
+    console.log("Finished creating cart!");
+  } catch (error) {
+    console.error("Error creating cart!");
+    throw error;
+  }
+}
+
+async function createOrderItems() {
   try {
     console.log("Starting to create orderItem...");
 
@@ -281,7 +307,7 @@ async function createOrderItem() {
   }
 }
 
-async function createOrderHistory() {
+async function createOrderHistories() {
   try {
     console.log("Starting to create orderHistory...");
 
@@ -315,8 +341,11 @@ async function rebuildDB() {
     await dropTables();
     await createTables();
     await createInitialUsers();
-    // await createProducts();
-    // await createCategories();
+    await createProducts();
+    await createCarts();
+    await createCategories();
+    await createOrderItems();
+    await createOrderHistories();
     
   } catch (error) {
     console.log("Error during rebuildDB")

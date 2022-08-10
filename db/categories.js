@@ -1,9 +1,9 @@
 const client = require("./client");
 
-async function createCategories({ name }) {
+async function createCategory({ name }) {
     try {
       const {
-        rows: [categories],
+        rows: [category],
       } = await client.query(
         `INSERT INTO categories(name)
          VALUES ($1) 
@@ -11,13 +11,13 @@ async function createCategories({ name }) {
         [name]
       );
   
-      return categories;
+      return category;
     } catch (error) {
-      console.error("Failed to create categories!");
+      console.error("Failed to create category!");
       throw error;
     }
   }
 
   module.exports = {
-    createCategories
+    createCategory
 }
