@@ -1,4 +1,4 @@
-const {createUser} = require("./");
+const {createUser, createProduct, createCategory, createCart, createOrderItem, createOrderHistory } = require("./");
 const client = require("./client");
 
 
@@ -54,14 +54,14 @@ async function createTables() {
     id SERIAL PRIMARY KEY,
     "cartId" INTEGER REFERENCES cart (id),
     "productId" INTEGER REFERENCES products (id),
-    quantity INTEGER,
+    quantity INTEGER DEFAULT 1,
     price INTEGER
   );
 
   CREATE TABLE "orderHistory" (
     id SERIAL PRIMARY KEY,
     "cartId" INTEGER REFERENCES cart (id),
-    "datePurchased" DATE NOT NULL
+    "datePurchased" DATE DEFAULT CURRENT_DATE
   );
   `);
   console.log("Finished creating tables!")
@@ -249,7 +249,65 @@ async function createCategories() {
   }
 }
 
+async function createOrderItem() {
+  try {
+    console.log("Starting to create orderItem...");
 
+    const orderItemToCreate = [
+      {
+        cartId: 1,
+        productId: 1,
+        quantity: 2,
+        price: 15
+      },
+      {
+        cartId: 2,
+        productId: 6,
+        price: 25
+      },
+      
+    ];
+    const orderItem = await Promise.all(
+      orderItemToCreate.map(createOrderItem)
+    );
+
+    console.log("orderItem created!");
+    console.log(orderItem);
+
+    console.log("Finished creating orderItem!");
+  } catch (error) {
+    console.error("Error creating orderItem!");
+    throw error;
+  }
+}
+
+async function createOrderHistory() {
+  try {
+    console.log("Starting to create orderHistory...");
+
+    const orderHistoryToCreate = [
+      {
+        cartId: 1,
+        datePurchased: 2022/02/02
+      },
+      {
+        cartId: 2,
+      },
+      
+    ];
+    const orderHistory = await Promise.all(
+      orderHistoryToCreate.map(createOrderHistory)
+    );
+
+    console.log("orderHistory created!");
+    console.log(orderHistory);
+
+    console.log("Finished creating orderHistory!");
+  } catch (error) {
+    console.error("Error creating orderHistory!");
+    throw error;
+  }
+}
 
 async function rebuildDB() {
   try {
