@@ -1,8 +1,4 @@
-const {
-  client,
-  // declare your model imports here
-  // for example, User
-} = require(".");
+const client = require("./")
 
 async function dropTables() {
   try {
