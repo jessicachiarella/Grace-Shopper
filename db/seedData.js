@@ -201,7 +201,7 @@ async function createProducts() {
         description: "A small clay pot for your small plant friend! Dimensions: 6'x6'x5.5",
         price: 10,
         categoryId: 4,
-        image_url: true,
+        image_url: "smallpot.jpeg",
         
       },
       {
@@ -209,7 +209,7 @@ async function createProducts() {
         description: "A medium clay pot for your medium plant friend! Dimensions: 12.5'x12.5'x11'",
         price: 20,
         categoryId: 4,
-        image_url: true,
+        image_url: "medpot.jpeg",
         
       },
       {
@@ -217,7 +217,7 @@ async function createProducts() {
         description: "A large clay pot for your large plant friend! Dimensions: 17'x17'x14.25'",
         price: 30,
         categoryId: 4,
-        image_url: true,
+        image_url: "largepot.jpeg",
         
       },
       
