@@ -51,7 +51,7 @@ async function getAllProducts() {
   }
 }
 
-//NEED TO LOOK OVER
+
 async function getProductsByCategoryId({ id }) {
   try {
     const { rows: products } = await client.query(`
