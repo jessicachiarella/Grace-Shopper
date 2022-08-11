@@ -8,7 +8,7 @@ async function dropTables() {
     await client.query(`
     DROP TABLE IF EXISTS "orderHistory";
     DROP TABLE IF EXISTS "orderItems";
-    DROP TABLE IF EXISTS cart;
+    DROP TABLE IF EXISTS carts;
     DROP TABLE IF EXISTS products;
     DROP TABLE IF EXISTS categories;
     DROP TABLE IF EXISTS users;
@@ -45,21 +45,21 @@ async function createTables() {
     image_url TEXT,
     "inStock" BOOLEAN DEFAULT true
   );
-  CREATE TABLE cart (
+  CREATE TABLE carts (
     id SERIAL PRIMARY KEY,
     "userId" INTEGER REFERENCES users(id),
     "isPurchased" BOOLEAN DEFAULT false
   );
   CREATE TABLE "orderItems" (
     id SERIAL PRIMARY KEY,
-    "cartId" INTEGER REFERENCES cart(id),
+    "cartId" INTEGER REFERENCES carts(id),
     "productId" INTEGER REFERENCES products(id),
     quantity INTEGER DEFAULT 1,
     price INTEGER
   );
   CREATE TABLE "orderHistory" (
     id SERIAL PRIMARY KEY,
-    "cartId" INTEGER REFERENCES cart(id),
+    "cartId" INTEGER REFERENCES carts(id),
     "datePurchased" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
   );
   `);
@@ -201,7 +201,7 @@ async function createProducts() {
         description: "A small clay pot for your small plant friend! Dimensions: 6'x6'x5.5",
         price: 10,
         categoryId: 4,
-        image_url: true,
+        image_url: "smallpot.jpeg",
         
       },
       {
@@ -209,7 +209,7 @@ async function createProducts() {
         description: "A medium clay pot for your medium plant friend! Dimensions: 12.5'x12.5'x11'",
         price: 20,
         categoryId: 4,
-        image_url: true,
+        image_url: "medpot.jpeg",
         
       },
       {
@@ -217,7 +217,7 @@ async function createProducts() {
         description: "A large clay pot for your large plant friend! Dimensions: 17'x17'x14.25'",
         price: 30,
         categoryId: 4,
-        image_url: true,
+        image_url: "largepot.jpeg",
         
       },
       
