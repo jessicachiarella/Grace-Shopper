@@ -1,5 +1,5 @@
 const client = require("./client");
-const {mapProducts} = require("./")
+const {mapProducts} = require("./helpers")
 
 async function createCart({ userId, isPurchased = false }) {
   try {

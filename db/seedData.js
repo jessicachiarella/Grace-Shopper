@@ -356,7 +356,7 @@ async function createOrderHistories() {
 
 async function rebuildDB() {
   try {
-    client.connect();
+    client.connect()
     await dropTables();
     await createTables();
     await createInitialUsers();

@@ -1,4 +1,4 @@
-const mapProducts = (cart) => {
+async function mapProducts(cart) {
     const object = {}
     for (let row of cart){
         if(!object.isPurchased){
