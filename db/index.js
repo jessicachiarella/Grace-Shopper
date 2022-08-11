@@ -3,7 +3,7 @@ module.exports = {
   ...require('./client'), 
   ...require('./categories'),
   ...require('./products'),
-  ...require('./cart'),
+  ...require('./carts'),
   ...require('./users'),
   ...require('./orderItems'),
   ...require('./orderHistory')
