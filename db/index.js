@@ -6,6 +6,8 @@ module.exports = {
   ...require('./carts'),
   ...require('./users'),
   ...require('./orderItems'),
-  ...require('./orderHistory')
+  ...require('./orderHistory'),
+  ...require('./helpers')
+  
   
 }

@@ -1,4 +1,5 @@
 const client = require("./client");
+const {mapProducts} = require("./")
 
 async function createCart({ userId, isPurchased = false }) {
   try {
@@ -33,7 +34,7 @@ async function getCartById(id) {
       [id]
     );
 
-    return carts;
+    return await mapProducts(carts);
   } catch (error) {
     throw error;
   }
