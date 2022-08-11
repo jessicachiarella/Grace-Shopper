@@ -273,12 +273,40 @@ async function createOrderItems() {
         cartId: 1,
         productId: 1,
         quantity: 2,
-        price: 15
+        price: 25
+        
+      },
+      {
+        cartId: 1,
+        productId: 3,
+        quantity: 1,
+        price: 25
+       
+      },
+      {
+        cartId: 1,
+        productId: 4,
+        quantity: 1,
+        price: 25
+       
+      },
+      {
+        cartId: 1,
+        productId: 5,
+        quantity: 1,
+        price: 25
+       
+      },{
+        cartId: 1,
+        productId: 7,
+        quantity: 1,
+        price: 25
+       
       },
       {
         cartId: 2,
         productId: 6,
-        price: 25
+        
       },
       
     ];
@@ -328,7 +356,7 @@ async function createOrderHistories() {
 
 async function rebuildDB() {
   try {
-    client.connect();
+    client.connect()
     await dropTables();
     await createTables();
     await createInitialUsers();

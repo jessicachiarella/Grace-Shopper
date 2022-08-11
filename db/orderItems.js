@@ -11,6 +11,7 @@ async function createOrderItem({ cartId, productId, quantity=1, price }) {
     return orderItem;
   }
 
+
 async function getOrderItemById ({id}){
   try{
     const {rows:[orderItems],} = await client.query(`
