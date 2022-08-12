@@ -1,4 +1,5 @@
 const express = require('express');
+const productsRouter = express.Router();
 const { getAllProducts, getProductsByCategoryId, getProductById } = require('../db');
 
 
@@ -15,7 +16,7 @@ productsRouter.get("/", async (req, res, next) => {
 
 //GET product by id
 
-productRouter.get("/productId", async (req, res, next) => {
+productsRouter.get("/productId", async (req, res, next) => {
     try {
         if (! await getProductById(req.params.productId)) {
             res.send({ error: "product error", message: `Product ${req.params.productId} not found`, name: "product error" })
@@ -28,4 +29,4 @@ productRouter.get("/productId", async (req, res, next) => {
     }
 })
 
-module.exports = productRouter;
+module.exports = productsRouter;

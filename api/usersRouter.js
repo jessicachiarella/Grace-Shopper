@@ -5,8 +5,9 @@ const {createUser,getUserByEmail,} = require("../db/index");
 const { JWT_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
 
+
 usersRouter.post("/register", async (req, res, next) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
   
     try {
       if (password.length < 8) {
@@ -27,7 +28,7 @@ usersRouter.post("/register", async (req, res, next) => {
       }
   
       const user = await createUser({
-        username,
+        email,
         password,
       });
   
@@ -55,7 +56,7 @@ usersRouter.post("/register", async (req, res, next) => {
   usersRouter.post("/login", async (req, res, next) => {
     const { email, password } = req.body;
   
-    if (!username || !password) {
+    if (!email || !password) {
       next({
         name: "MissingCredentialsError",
         message: "Please supply both a email and password",

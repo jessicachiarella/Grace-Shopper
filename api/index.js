@@ -13,9 +13,9 @@ apiRouter.get('/health', (req, res, next) => {
 });
 
 apiRouter.use('/cart', require('./cartRouter'))
-apiRouter.use('/categories', require('./categoriesRouter'))
-apiRouter.use('/orderHistory', require('./orderHistoryRouter'))
-apiRouter.use('/orderItems', require('./orderItemsRouter'))
+// apiRouter.use('/categories', require('./categoriesRouter'))
+// apiRouter.use('/orderHistory', require('./orderHistoryRouter'))
+// apiRouter.use('/orderItems', require('./orderItemsRouter'))
 apiRouter.use('/products', require('./productsRouter'))
 apiRouter.use('/users', require('./usersRouter'))
 
