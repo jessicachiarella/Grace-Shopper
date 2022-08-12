@@ -2,9 +2,10 @@ const express = require("express");
 const { createCart, getCartById, getAllUnpurchasedCartsByUser } = require("../db");
 const router = express.Router();
 const { requireUser } = require("./utils");
+console.log("request to /cart is being made")
 
 router.get("/:userId", async (req, res, next) => {
-  console.log("am i here??????")
+  
   let {userId} = req.params
     try {
       const cart = await getCartById(userId);
@@ -14,17 +15,23 @@ router.get("/:userId", async (req, res, next) => {
       next({ name, message });
     }
   });
+
+router.get("/unpurchasedCart/:userId", async (req, res, next) => {
+    let {userId} = req.params
+      try {
+        const cart = await getAllUnpurchasedCartsByUser(userId);
+        res.send(cart);
+      } catch ({ name, message }) {
+        next({ name, message });
+      }
+    });
   
-  router.post("/cart", requireUser, async (req, res, next) => {
-    const { name, goal, isPublic } = req.body;
-    const routineData = {};
+router.post("/:userId", async (req, res, next) => {
+    let {userId} = req.params
+  
     try {
-      routineData.name = name;
-      routineData.goal = goal;
-      routineData.isPublic = isPublic;
-      routineData.creatorId = req.user.id;
-      const routine = await createRoutine(routineData);
-      res.send(routine);
+      const cart = await createCart({userId});
+      res.send(cart);
     } catch ({ name, message }) {
       next({ name, message });
     }
