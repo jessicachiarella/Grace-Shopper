@@ -24,7 +24,7 @@ async function createCart({ userId, isPurchased = false }) {
 async function getCartById(id) {
   try {
     const {
-      rows: [carts],
+      rows: carts,
     } = await client.query(
       `
       SELECT * 
@@ -35,8 +35,7 @@ async function getCartById(id) {
       `,
       [id]
     );
-return carts
-    // return await mapProducts(carts);
+    return await mapProducts(carts);
   } catch (error) {
     throw error;
   }
@@ -84,8 +83,7 @@ async function getAllUnpurchasedCartsByUser(userId) {
       `,
       [userId]
     );
-    console.log(carts, "info from cart")
-    return carts;
+    return await mapProducts(carts);
   } catch (error) {
     throw error;
   }
