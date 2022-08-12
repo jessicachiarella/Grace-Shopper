@@ -1,5 +1,5 @@
 const {createUser, createProduct, createCategory, createCart, createOrderItem, createOrderHistory } = require("./");
-const client = require("./client");
+const {client} = require("./client");
 
 
 async function dropTables() {
