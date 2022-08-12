@@ -3,9 +3,11 @@ const { createCart, getCartById, getAllUnpurchasedCartsByUser } = require("../db
 const router = express.Router();
 const { requireUser } = require("./utils");
 
-router.get("/:cartId/cart", async (req, res, next) => {
+router.get("/:userId", async (req, res, next) => {
+  console.log("am i here??????")
+  let {userId} = req.params
     try {
-      const cart = await getCartById();
+      const cart = await getCartById(userId);
   
       res.send(cart);
     } catch ({ name, message }) {
@@ -27,3 +29,5 @@ router.get("/:cartId/cart", async (req, res, next) => {
       next({ name, message });
     }
   });
+
+  module.exports = router;
