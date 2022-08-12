@@ -21,6 +21,25 @@ async function createCart({ userId, isPurchased = false }) {
   }
 }
 
+async function getCartId(id) {
+  try {
+    const {
+      rows: carts,
+    } = await client.query(
+      `
+      SELECT * 
+      FROM carts
+      WHERE carts."userId" = $1;
+      `,
+      [id]
+    );
+    console.log(carts, "THIS IS CARTS FROM GET ID")
+    return carts;
+  } catch (error) {
+    throw error;
+  }
+}
+
 async function getCartById(id) {
   try {
     const {
@@ -92,6 +111,7 @@ async function getAllUnpurchasedCartsByUser(userId) {
 module.exports = {
   createCart,
   getCartById,
+  getCartId,
   // getAllCartsByUser,
   // getAllPurchasedCartsByUser,
   getAllUnpurchasedCartsByUser,

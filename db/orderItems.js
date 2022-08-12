@@ -12,9 +12,9 @@ async function createOrderItem({ cartId, productId, quantity=1, price }) {
   }
 
 
-async function getOrderItemById ({id}){
+async function getOrderItemById (id){
   try{
-    const {rows:[orderItems],} = await client.query(`
+    const {rows:[orderItems]} = await client.query(`
     SELECT * 
     FROM "orderItems"
     WHERE id = $1;
