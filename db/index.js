@@ -1,6 +1,6 @@
-
+// const client = require('./client')
 module.exports = {
-  ...require('./client'), 
+  ...require('./client'),
   ...require('./categories'),
   ...require('./products'),
   ...require('./carts'),
