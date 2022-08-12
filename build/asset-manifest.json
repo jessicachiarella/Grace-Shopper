@@ -8,7 +8,9 @@
     "static/js/2.ab0155c1.chunk.js": "/static/js/2.ab0155c1.chunk.js",
     "static/js/2.ab0155c1.chunk.js.map": "/static/js/2.ab0155c1.chunk.js.map",
     "index.html": "/index.html",
+
     "precache-manifest.c9e3e72892622818e62ab8d216c4509b.js": "/precache-manifest.c9e3e72892622818e62ab8d216c4509b.js",
+
     "service-worker.js": "/service-worker.js",
     "static/css/main.9b8c1b41.chunk.css.map": "/static/css/main.9b8c1b41.chunk.css.map",
     "static/js/2.ab0155c1.chunk.js.LICENSE.txt": "/static/js/2.ab0155c1.chunk.js.LICENSE.txt"
@@ -17,6 +19,8 @@
     "static/js/runtime-main.da5551cf.js",
     "static/js/2.ab0155c1.chunk.js",
     "static/css/main.9b8c1b41.chunk.css",
+
     "static/js/main.eab8878a.chunk.js"
+
   ]
 }

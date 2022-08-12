@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 
 usersRouter.post("/register", async (req, res, next) => {
-    const { email, password } = req.body;
+    const { email, password, fullname } = req.body;
     console.log(req.body, "am i here?")
   
     try {
@@ -32,7 +32,9 @@ usersRouter.post("/register", async (req, res, next) => {
       const user = await createUser({
         email,
         password,
+        fullname
       });
+      console.log(user, "THIS IS THE USER!!!!")
   
       const token = jwt.sign(
         {
@@ -44,6 +46,7 @@ usersRouter.post("/register", async (req, res, next) => {
           expiresIn: "1w",
         }
       );
+    
   
       res.send({
         message: "thank you for signing up",
