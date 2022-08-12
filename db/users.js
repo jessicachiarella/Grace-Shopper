@@ -57,9 +57,9 @@ async function getUserByEmail(email) {
       rows: [user],
     } = await client.query(
       `
-      SELECT users, email
+      SELECT *
       FROM users
-      WHERE id=$1;    
+      WHERE email=$1;    
       `,
       [email]
     );
