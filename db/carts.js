@@ -1,7 +1,9 @@
 const {client} = require("./client");
 const {mapProducts} = require("./helpers")
+const {addItemToCart} = require("./orderItems")
 
 async function createCart({ userId, isPurchased = false }) {
+  console.log(userId, "is this the user iddddd")
   try {
     const {
       rows: [carts],
@@ -69,7 +71,7 @@ return carts
 //   }
 // }
 
-async function getAllUnpurchasedCartsByUser({ userId }) {
+async function getAllUnpurchasedCartsByUser(userId) {
   try {
     const { rows: carts } = await client.query(
       `
@@ -82,7 +84,8 @@ async function getAllUnpurchasedCartsByUser({ userId }) {
       `,
       [userId]
     );
-    return await addItemToCart(carts);
+    console.log(carts, "info from cart")
+    return carts;
   } catch (error) {
     throw error;
   }

@@ -1,4 +1,4 @@
-const client = require("./client");
+const {client} = require("./client");
 
 //need to address price
 async function createOrderItem({ cartId, productId, quantity=1, price }) { 
