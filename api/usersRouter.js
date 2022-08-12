@@ -1,13 +1,14 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const usersRouter = express.Router();
-const {createUser,getUserByEmail,} = require("../db/index");
+const {createUser,getUserByEmail} = require("../db/index");
 const { JWT_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
 
 
 usersRouter.post("/register", async (req, res, next) => {
     const { email, password } = req.body;
+    console.log(req.body, "am i here?")
   
     try {
       if (password.length < 8) {
@@ -18,6 +19,7 @@ usersRouter.post("/register", async (req, res, next) => {
         });
       }
       const _user = await getUserByEmail(email);
+      console.log(_user, "am i here?")
   
       if (_user) {
         next({
@@ -52,6 +54,7 @@ usersRouter.post("/register", async (req, res, next) => {
       next({ error, name, message });
     }
   });
+
   
   usersRouter.post("/login", async (req, res, next) => {
     const { email, password } = req.body;
