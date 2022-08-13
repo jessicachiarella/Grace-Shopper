@@ -26,11 +26,12 @@ async function mapHistory(carts) {
     console.log(carts, "This is carts within our map history functionnnnnnnnnnnnn")
     const object = {}
     for (let row of carts){
-        if(!object.isPurchased){
-            object.isPurchased = row.isPurchased
-        }
+       
         if(!object.cartId){
             object.cartId = row.cartId
+        }
+        if(!object.datePurchased){
+            object.datePurchased = row.datePurchased
         }
         if(!object.products){
             object.products = []

@@ -1,4 +1,5 @@
 const {client} = require("./client");
+const {mapHistory} = require("./helpers")
 
 
 async function createOrderHistory({ cartId }) { 
@@ -13,7 +14,7 @@ async function createOrderHistory({ cartId }) {
 
 async function getOrderHistoryByUserId( userId ){
  try{ 
-  const {rows:[orderHistory]}  = await client.query(`
+  const {rows:orderHistory}  = await client.query(`
     SELECT *
     FROM "orderHistory"
     JOIN carts ON "orderHistory"."cartId" = carts.id
@@ -22,7 +23,7 @@ async function getOrderHistoryByUserId( userId ){
     WHERE carts."userId" = $1 AND carts."isPurchased" = true
   `, [userId])
 console.log(orderHistory, "THIS IS MY ORDER HISTORY !!!")
-  return orderHistory
+  return await mapHistory(orderHistory)
 } catch(error){
   throw error
 }

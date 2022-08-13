@@ -21,15 +21,15 @@ async function createCart({ userId, isPurchased = false }) {
   }
 }
 
-async function getCartId(id) {
+async function getCartByCartId(id) {
   try {
     const {
-      rows: carts,
+      rows: [carts],
     } = await client.query(
       `
       SELECT * 
       FROM carts
-      WHERE carts."userId" = $1;
+      WHERE id = $1;
       `,
       [id]
     );
@@ -41,6 +41,7 @@ async function getCartId(id) {
 }
 
 async function getCartById(id) {
+  console.log(id, "am I id??????????????")
   try {
     const {
       rows: carts,
@@ -54,6 +55,7 @@ async function getCartById(id) {
       `,
       [id]
     );
+    console.log(carts, "THIS IS CARTS")
     return await mapProducts(carts);
   } catch (error) {
     throw error;
@@ -111,7 +113,7 @@ async function getAllUnpurchasedCartsByUser(userId) {
 module.exports = {
   createCart,
   getCartById,
-  getCartId,
+  getCartByCartId,
   // getAllCartsByUser,
   // getAllPurchasedCartsByUser,
   getAllUnpurchasedCartsByUser,
