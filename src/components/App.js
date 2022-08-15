@@ -1,33 +1,70 @@
-import React, { useState, useEffect } from 'react';
-// getAPIHealth is defined in our axios-services directory index.js
-// you can think of that directory as a collection of api adapters
-// where each adapter fetches specific info from our express server's /api route
-import { getAPIHealth } from '../axios-services';
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import '../style/App.css';
+import {
+//   Login,
+//   Logout,
+//   Register,
+//   AddToCart,
+//   Cart,
+//   Confirmation,
+//   DeleteFromCart,
+//   EditCart,
+//   Header,
+//   Home,
+//   OrderHistory,
+//   RenderAllPlants,
+//   RenderDivas,
+//   RenderGreenThumbs,
+//   RenderPlantNoobs,
+//   RenderPots,
+//   SingleProducts
+} from ".";
 
 const App = () => {
-  const [APIHealth, setAPIHealth] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    // follow this pattern inside your useEffect calls:
-    // first, create an async function that will wrap your axios service adapter
-    // invoke the adapter, await the response, and set the data
-    const getAPIStatus = async () => {
-      const { healthy } = await getAPIHealth();
-      setAPIHealth(healthy ? 'api is up! :D' : 'api is down :/');
-    };
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+          setIsLoggedIn(true);
+        }
+      }, []);
 
-    // second, after you've defined your getter above
-    // invoke it immediately after its declaration, inside the useEffect callback
-    getAPIStatus();
-  }, []);
+      return(
+        <div>
+            {/* <Header> </Header> */}
+            <div>Hello, world!</div>
+            if(isLoggedIn){
+                <Routes>
+                    {/* <Route path="/Home" element={<Home/>}/>
+                    <Route path="/users/Logout" element={<Logout/>}/>
+                    <Route path="/OrderHistory" element={<OrderHistory/>}/>
+                    <Route path="/Cart" element={<Cart/>}/>
+                    <Route path="/Confirmation" element={<Confirmation/>}/>
+                    <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
+                    <Route path="/RenderDivas" element={<RenderDivas/>}/>
+                    <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
+                    <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
+                    <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                </Routes>
+            }:{
+                <Routes>
+                    {/* <Route path="/Home" element={<Home/>}/>
+                    <Route path="/users/Register" element={<Register/>}/>
+                    <Route path="/users/Login" element={<Login/>}/>
+                    <Route path="/Cart" element={<Cart/>}/>
+                    <Route path="/Confirmation" element={<Confirmation/>}/>
+                    <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
+                    <Route path="/RenderDivas" element={<RenderDivas/>}/>
+                    <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
+                    <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
+                    <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                </Routes>
+            }
 
-  return (
-    <div className="app-container">
-      <h1>Hello, World!</h1>
-      <p>API Status: {APIHealth}</p>
-    </div>
-  );
-};
-
+        </div>
+      )
+}
 export default App;
