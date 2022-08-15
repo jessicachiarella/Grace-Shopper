@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import '../style/App.css';
 import {
   Login,
-//   Logout,
+  Logout,
   Register,
 //   AddToCart,
 //   Cart,
@@ -20,7 +20,7 @@ import {
 //   RenderPlantNoobs,
 //   RenderPots,
 //   SingleProducts
-} from ".";
+} from "./";
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -38,10 +38,11 @@ const App = () => {
             {isLoggedIn ? (
                 <Routes>
 
-                    {/* <Route path="/users/Logout" element={<Logout/>}/> */}
+
+                    <Route path="/users/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
                     {/* <Route path="/Account" element={<Account/>}/> */}
                     <Route path="/Home" element={<Home/>}/>
-                    {/* <Route path="/users/Logout" element={<Logout/>}/>
+                    {/* 
                     <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
@@ -56,7 +57,8 @@ const App = () => {
                 <Routes>
                     <Route path="/users/Login" element={<Login setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                     <Route path="/Home" element={<Home/>}/>
-                    {/* <Route path="/users/Register" element={<Register/>}/>
+                    {/* <Route path="/users/Register" element={<Register/>}/> */}
+                    {/* 
                     <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
