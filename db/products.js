@@ -20,6 +20,7 @@ async function createProduct({ name, description, price, categoryId, image_url, 
 
 async function getProductById(id) {
   try {
+    
     const {
       rows: [product],
     } = await client.query(
@@ -52,7 +53,8 @@ async function getAllProducts() {
 }
 
 
-async function getProductsByCategoryId({ id }) {
+async function getProductsByCategoryId( id ) {
+  console.log(id, "this is id from function")
   try {
     const { rows: products } = await client.query(`
       SELECT *
@@ -60,6 +62,7 @@ async function getProductsByCategoryId({ id }) {
       JOIN categories ON categories.id=products."categoryId"
       WHERE categories.id=${id}
       `);
+      console.log(products, "this is the products from function")
     return products;
   } catch (error) {
     throw error;

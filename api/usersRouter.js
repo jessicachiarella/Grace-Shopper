@@ -1,100 +1,106 @@
+require("dotenv").config()
 const express = require("express");
 const bcrypt = require("bcrypt");
 const usersRouter = express.Router();
-const {createUser,getUserByEmail} = require("../db/index");
 const { JWT_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
+const {createUser,getUserByEmail} = require("../db/index");
 
 
 usersRouter.post("/register", async (req, res, next) => {
-    const { email, password, fullname } = req.body;
-    console.log(req.body, "am i here?")
-  
-    try {
-      if (password.length < 8) {
-        next({
-          error: "ShortPassword",
-          name: "ShortPasswordError",
-          message: "Password Too Short!",
-        });
-      }
-      const _user = await getUserByEmail(email);
-      console.log(_user, "am i here?")
-  
-      if (_user) {
-        next({
-          error: "UserExists",
-          name: "UserExistsError",
-          message: `${email} is already taken.`,
-        });
-      }
-  
+  const { email, password, fullname } = req.body;
+  console.log(req.body, "email password fullname")
+  try {
+    const _user = await getUserByEmail(email);
+    console.log(_user, "get user by email")
+
+    if (_user) {
+      res.status(401);
+      next({
+        name: "UserTakenError",
+        message: `User ${email} is already taken.`,
+      });
+    } else if (password.length < 8) {
+      res.status(401);
+      next({
+        name: "PasswordTooShortError",
+        message: "Password Too Short!",
+      });
+    } else {
       const user = await createUser({
         email,
         password,
         fullname
       });
-      console.log(user, "THIS IS THE USER!!!!")
-  
-      const token = jwt.sign(
-        {
-          id: user.id,
-          email,
-        },
-        JWT_SECRET,
-        {
-          expiresIn: "1w",
-        }
-      );
-    
-  
-      res.send({
-        message: "thank you for signing up",
-        token: token,
-        user: user,
-      });
-    } catch ({ error, name, message }) {
-      next({ error, name, message });
-    }
-  });
+      console.log(user, "FINAL USER")
+      
 
-  
-  usersRouter.post("/login", async (req, res, next) => {
-    const { email, password } = req.body;
-  
-    if (!email || !password) {
-      next({
-        name: "MissingCredentialsError",
-        message: "Please supply both a email and password",
-      });
-    }
-  
-    try {
-      const user = await getUserByEmail(email);
-      const hashedPassword = user.password
-      if (user && await bcrypt.compare(password, hashedPassword)) {
-        
-        const newToken = jwt.sign(
+      if (!user) {
+        res.status(400);
+        next({
+          name: "UserCreationError",
+          message: "Bad Request",
+        });
+      } else {
+        const token = jwt.sign(
           {
             id: user.id,
-            email: user.email,
+            username: email,
           },
-          process.env.JWT_SECRET,
-          { expiresIn: "1w" }
+          JWT_SECRET,
+          {
+            expiresIn: "1w",
+          }
         );
-        res.send({ user: user, token: newToken, message: "you're logged in!" });
-      } else {
-        next({
-          name: "IncorrectCredentialsError",
-          message: "Email or password is incorrect",
-        });
-      }
-    } catch ({ name, message }) {
-      next({ name, message });
-    }
-  });
+        console.log(token, "THIS IS THE TOKEN")
+        
 
-  usersRouter.get("/me", async (req, res, next) => {
+        res.send({
+          user,
+          message: "thank you for signing up",
+          token,
+        });
+        console.log(res.send, "THANK YOU FOR SIGNING UP")
+      }
+    }
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
+
+  
+usersRouter.post("/login", async (req, res, next) => {
+  const { email, password } = req.body;
+  console.log(req.body, "email and password")
+
+  if (!email || !password) {
+    next({
+      name: "MissingCredentialsError",
+      message: "Please supply both a email and password",
+    });
+  }
+
+  try {
+    const user = await getUserByEmail(email);
+    console.log(user, "THIS IS THE USER")
+    const hashedPassword = user.password;
+    const passwordsMatch = await bcrypt.compare(password, hashedPassword);
+    if (passwordsMatch) {
+      const token = jwt.sign(user, JWT_SECRET);
+      res.send({ user, message: "you're logged in!", token: `${token}` });
+      console.log(token, "THIS IS THE TOKEN")
+    } else {
+      next({
+        name: "IncorrectCredentialsError",
+        message: "email or password is incorrect",
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+usersRouter.get("/me", async (req, res, next) => {
     try {
       if (req.user) {
         res.send(req.user);
