@@ -38,6 +38,7 @@ const App = () => {
             {isLoggedIn ? (
                 <Routes>
 
+
                     <Route path="/users/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
                     {/* <Route path="/Account" element={<Account/>}/> */}
                     <Route path="/Home" element={<Home/>}/>
