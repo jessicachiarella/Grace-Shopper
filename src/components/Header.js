@@ -18,10 +18,10 @@ function Header({ isLoggedIn }) {
             <NavLink className="Links" to="/Care">
               Care
             </NavLink>
-            <NavLink className="Links" to="users/Login">
+            <NavLink className="Links" to="/users/Login">
               Login
             </NavLink>
-            <NavLink className="Links" to="users/Cart">
+            <NavLink className="Links" to="/users/Cart">
               Cart
             </NavLink>
           </div>
@@ -41,10 +41,10 @@ function Header({ isLoggedIn }) {
             <NavLink className="Links" to="/Account">
             Account
           </NavLink>
-          <NavLink className="Links" to="users/Logout">
+          <NavLink className="Links" to="/users/Logout">
             Logout
           </NavLink>
-            <NavLink className="Links" to="users/Cart">
+            <NavLink className="Links" to="/users/Cart">
               Cart
             </NavLink>
           </div>
