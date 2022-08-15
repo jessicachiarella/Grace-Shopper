@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Routes } from "react-router-dom";
 import '../style/App.css';
 import {
-//   Login,
+  Login,
 //   Logout,
-//   Register,
+  Register,
 //   AddToCart,
 //   Cart,
 //   Care,
@@ -13,7 +13,7 @@ import {
 //   EditCart,
 //   Header,
 //   Home,
-//   OrderHistory,
+//   Account,
 //   RenderAllPlants,
 //   RenderDivas,
 //   RenderGreenThumbs,
@@ -24,6 +24,7 @@ import {
 
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [email, setEmail] = useState("");
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
@@ -39,7 +40,7 @@ const App = () => {
                 <Routes>
                     {/* <Route path="/Home" element={<Home/>}/>
                     <Route path="/users/Logout" element={<Logout/>}/>
-                    <Route path="/OrderHistory" element={<OrderHistory/>}/>
+                    <Route path="/Account" element={<Account/>}/>
                     <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
@@ -53,9 +54,9 @@ const App = () => {
             ):(
                 <Routes>
                     {/* <Route path="/Home" element={<Home/>}/>
-                    <Route path="/users/Register" element={<Register/>}/>
-                    <Route path="/users/Login" element={<Login/>}/>
-                    <Route path="/Cart" element={<Cart/>}/>
+                    <Route path="/users/Register" element={<Register/>}/> */}
+                    <Route path="/users/Login" element={<Login setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
+                    {/* <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
