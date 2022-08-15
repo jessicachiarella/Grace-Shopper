@@ -7,7 +7,6 @@ const Register = ({setEmail, setIsLoggedIn}) => {
     async function handleSubmit(event) {
     event.preventDefault();
     const result = await RegisterPerson(event);
-    console.log(result, "this is from registerPerson")
     if(result.token){
         setIsLoggedIn(true);
         localStorage.setItem("token", result.token);
