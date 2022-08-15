@@ -7,6 +7,7 @@ import {
 //   Register,
 //   AddToCart,
 //   Cart,
+//   Care,
 //   Confirmation,
 //   DeleteFromCart,
 //   EditCart,
@@ -40,6 +41,7 @@ const App = () => {
                     <Route path="/users/Logout" element={<Logout/>}/>
                     <Route path="/OrderHistory" element={<OrderHistory/>}/>
                     <Route path="/Cart" element={<Cart/>}/>
+                    <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
@@ -54,6 +56,7 @@ const App = () => {
                     <Route path="/users/Register" element={<Register/>}/>
                     <Route path="/users/Login" element={<Login/>}/>
                     <Route path="/Cart" element={<Cart/>}/>
+                    <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/>
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
