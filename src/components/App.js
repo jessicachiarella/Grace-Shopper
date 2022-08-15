@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes } from "react-router-dom";
 import '../style/App.css';
 import {
 //   Login,
@@ -33,8 +33,7 @@ const App = () => {
       return(
         <div>
             {/* <Header> </Header> */}
-            <div>Hello, world!</div>
-            if(isLoggedIn){
+            {isLoggedIn ? (
                 <Routes>
                     {/* <Route path="/Home" element={<Home/>}/>
                     <Route path="/users/Logout" element={<Logout/>}/>
@@ -48,7 +47,7 @@ const App = () => {
                     <Route path="/RenderPots" element={<RenderPots/>}/>
                     <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
                 </Routes>
-            }:{
+            ):(
                 <Routes>
                     {/* <Route path="/Home" element={<Home/>}/>
                     <Route path="/users/Register" element={<Register/>}/>
@@ -62,7 +61,7 @@ const App = () => {
                     <Route path="/RenderPots" element={<RenderPots/>}/>
                     <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
                 </Routes>
-            }
+            )}
 
         </div>
       )
