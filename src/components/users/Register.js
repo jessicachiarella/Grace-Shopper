@@ -1,14 +1,25 @@
 import React from "react";
+import {  useNavigate } from "react-router-dom";
 import { RegisterPerson } from "../../api/index.js";
-import "./Register.css";
-async function handleSubmit(event) {
-  event.preventDefault();
-  const result = await RegisterPerson(event);
-  if (result.error) {
-    alert(result.error);
+
+const Register = ({setEmail, setIsLoggedIn}) => {
+    const navigate = useNavigate();
+    async function handleSubmit(event) {
+    event.preventDefault();
+    const result = await RegisterPerson(event);
+    console.log(result, "this is from registerPerson")
+    if(result.token){
+        setIsLoggedIn(true);
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("email", result.user.email);
+        setEmail(email);
+        alert("You have successfully created an account!")
+        navigate("/Home");
+    }else if(result.error) {
+      alert(result.error);
+    } 
   }
-}
-const Register = () => {
+
   return (
     <div id="registerBox">
       <form onSubmit={handleSubmit}>
@@ -17,10 +28,11 @@ const Register = () => {
         <input id="emailregister" placeholder="enter your email"></input>
         <label>Create Password</label>
         <input id="passwordregister" placeholder="create password here"></input>
+        <label>Enter Your Full Name</label>
+        <input id="fullnameregister" placeholder="enter your full name"></input>
         <button type="submit">Create Account</button>
       </form>
     </div>
   );
 };
 export default Register;
-
