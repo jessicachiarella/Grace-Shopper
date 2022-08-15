@@ -11,8 +11,8 @@ import {
 //   Confirmation,
 //   DeleteFromCart,
 //   EditCart,
-//   Header,
-//   Home,
+  Header,
+  Home,
 //   Account,
 //   RenderAllPlants,
 //   RenderDivas,
@@ -38,8 +38,8 @@ const App = () => {
             {isLoggedIn ? (
                 <Routes>
 
-                    <Route path="/users/Logout" element={<Logout/>}/>
-                    <Route path="/Account" element={<Account/>}/>
+                    {/* <Route path="/users/Logout" element={<Logout/>}/> */}
+                    {/* <Route path="/Account" element={<Account/>}/> */}
                     <Route path="/Home" element={<Home/>}/>
                     {/* <Route path="/users/Logout" element={<Logout/>}/>
                     <Route path="/Cart" element={<Cart/>}/>

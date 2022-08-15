@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { LoginPerson } from "../../api";
 
-const Login = ({ setLoggedIn, setEmail }) => {
+const Login = ({ setIsLoggedIn, setEmail }) => {
     const navigate = useNavigate();
   
     async function handleSubmit(event) {
@@ -10,7 +10,7 @@ const Login = ({ setLoggedIn, setEmail }) => {
       const loginEmail = event.target[0].value;
       const result = await LoginPerson(event);
       if (result.token) {
-        setLoggedIn(true);
+        setIsLoggedIn(true);
         localStorage.setItem("token", result.token);
         localStorage.setItem("email", loginEmail);
         setEmail(loginEmail);
