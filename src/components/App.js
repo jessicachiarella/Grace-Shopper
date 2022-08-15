@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import '../style/App.css';
 import {
 //   Login,
@@ -11,8 +11,8 @@ import {
 //   Confirmation,
 //   DeleteFromCart,
 //   EditCart,
-//   Header,
-//   Home,
+  Header,
+  Home,
 //   OrderHistory,
 //   RenderAllPlants,
 //   RenderDivas,
@@ -33,12 +33,11 @@ const App = () => {
 
       return(
         <div>
-            <h>Hello there</h>
-            {/* <Header> </Header> */}
+            <Header isLoggedIn={isLoggedIn}/>
             {isLoggedIn ? (
                 <Routes>
-                    {/* <Route path="/Home" element={<Home/>}/>
-                    <Route path="/users/Logout" element={<Logout/>}/>
+                    <Route path="/Home" element={<Home/>}/>
+                    {/* <Route path="/users/Logout" element={<Logout/>}/>
                     <Route path="/OrderHistory" element={<OrderHistory/>}/>
                     <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
@@ -52,8 +51,8 @@ const App = () => {
                 </Routes>
             ):(
                 <Routes>
-                    {/* <Route path="/Home" element={<Home/>}/>
-                    <Route path="/users/Register" element={<Register/>}/>
+                    <Route path="/Home" element={<Home/>}/>
+                    {/* <Route path="/users/Register" element={<Register/>}/>
                     <Route path="/users/Login" element={<Login/>}/>
                     <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
