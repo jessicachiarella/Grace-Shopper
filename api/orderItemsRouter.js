@@ -2,6 +2,8 @@ const express = require("express");
 const {  createOrderItem,
     updateOrderItem,
     destroyOrderItem, 
+    getOrderItemById,
+    getCartByCartId,
     } = require("../db");
 const router = express.Router();
 const { requireUser } = require("./utils");
@@ -28,19 +30,20 @@ router.post("/:cartId/addToCart", async (req, res, next) => {
     const { orderItemId } = req.params;
     const { quantity } = req.body;
     try {
-    //   const orderItem = await getOrderItemById(orderItemId);
-    //   const usersCart = await getCartByCartId(orderItem.cartId);
-        // console.log(req.user, "req.user!!!!!!!!!!!")
-    //   if (req.user.id != usersCart.userId) {
-    //     res.status(403);
-    //     next({
-    //       name: "CartUpdateError",
-    //       message: "No soup for you!",
-    //     });
-    //   } else {
+      // const orderItem = await getOrderItemById(orderItemId);
+      // const usersCart = await getCartByCartId(orderItem.cartId);
+      // console.log(usersCart.userId, "this is usersCart.userId!!!!!!!!!!!")
+      //   console.log(req.user, "req.user!!!!!!!!!!!")
+      // if (req.user.id != usersCart.userId) {
+      //   res.status(403);
+      //   next({
+      //     name: "CartUpdateError",
+      //     message: "No soup for you!",
+      //   });
+      // } else {
         const updatedQuantity = await updateOrderItem( orderItemId, quantity);
         res.send(updatedQuantity);
-    //   }
+      // }
     } catch ({ name, message }) {
       next({ name, message });
     }
