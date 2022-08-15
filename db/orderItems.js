@@ -12,9 +12,9 @@ async function createOrderItem({ cartId, productId, quantity=1, price }) {
   }
 
 
-async function getOrderItemById ({id}){
+async function getOrderItemById (id){
   try{
-    const {rows:[orderItems],} = await client.query(`
+    const {rows:[orderItems]} = await client.query(`
     SELECT * 
     FROM "orderItems"
     WHERE id = $1;
@@ -43,20 +43,16 @@ async function addItemToCart(cartId, productId, quantity, price) {
   }
 }
 
-async function updateOrderItem({ id, ...fields }) {
-  const setString = Object.keys(fields).map(
-    (key, index) => `"${key}"=$${index + 1}`
-    ).join(',') 
+async function updateOrderItem( id, quantity ) {
     try {
-    if (setString.length > 0){
       await client.query(`
       UPDATE "orderItems"
-      SET ${setString}
-      WHERE "orderItems".id = ${id}
+      SET quantity = ${quantity}
+      WHERE id = ${id}
       RETURNING *;
-      `, Object.values(fields)) 
-    }
-    return await getOrderItemById(id) 
+      `, )
+    const test = await getOrderItemById(id) 
+    return test
     } catch(error){
       throw error
     }

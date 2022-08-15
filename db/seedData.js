@@ -59,7 +59,8 @@ async function createTables() {
     "cartId" INTEGER REFERENCES carts(id),
     "productId" INTEGER REFERENCES products(id),
     quantity INTEGER DEFAULT 1,
-    price INTEGER
+    price INTEGER,
+    UNIQUE ("cartId", "productId")
   );
   CREATE TABLE "orderHistory" (
     id SERIAL PRIMARY KEY,
