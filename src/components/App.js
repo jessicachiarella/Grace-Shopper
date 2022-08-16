@@ -7,13 +7,13 @@ import {
   Register,
 //   AddToCart,
 //   Cart,
-//   Care,
+  Care,
 //   Confirmation,
 //   DeleteFromCart,
 //   EditCart,
   Header,
   Home,
-//   Account,
+  Account,
   RenderAllPlants,
   RenderDivas,
   RenderGreenThumbs,
@@ -40,11 +40,11 @@ const App = () => {
 
 
                     <Route path="/users/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
-                    {/* <Route path="/Account" element={<Account/>}/> */}
+                    <Route path="/Account" element={<Account/>}/>
                     <Route path="/Home" element={<Home/>}/>
+                    <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
@@ -58,9 +58,9 @@ const App = () => {
                     <Route path="/users/Login" element={<Login setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/users/Register" element={<Register setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
+                    <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Carte" element={<Care/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
