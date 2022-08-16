@@ -4,7 +4,7 @@ export { default as Logout } from "./users/Logout";
 export { default as Register } from "./users/Register";
 // export { default as AddToCart } from "./AddToCart";
 // export { default as Cart } from "./Cart";
-// export { default as Care } from "./Care";
+export { default as Care } from "./Care";
 // export { default as Confirmation } from "./Confirmation";
 // export { default as DeleteFromCart } from "./DeleteFromCart";
 // export { default as EditCart } from "./EditCart";
