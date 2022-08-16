@@ -51,7 +51,11 @@ const App = () => {
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/RenderPots/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
                 </Routes>
             ):(
                 <Routes>
@@ -67,7 +71,11 @@ const App = () => {
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/RenderPots/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
+                    <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
                 </Routes>
             )}
 
