@@ -55,8 +55,8 @@ export async function RegisterPerson(event) {
     return routines;
 }
 
-  export async function getProductById() {
-    const response = await fetch(`${API_URL}/products`, {
+  export async function getProductById(id) {
+    const response = await fetch(`${API_URL}/products/${id}`, {
       headers: {
         "Content-Type": "application/json",
       },
