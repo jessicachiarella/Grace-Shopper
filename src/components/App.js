@@ -19,7 +19,7 @@ import {
   RenderGreenThumbs,
   RenderPlantNoobs,
   RenderPots,
-//   SingleProducts
+  SingleProducts
 } from "./";
 
 const App = () => {
@@ -51,7 +51,7 @@ const App = () => {
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    {/* <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                    <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
                 </Routes>
             ):(
                 <Routes>
@@ -67,7 +67,7 @@ const App = () => {
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    {/* <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                    <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
                 </Routes>
             )}
 

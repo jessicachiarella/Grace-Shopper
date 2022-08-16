@@ -16,4 +16,4 @@ export { default as RenderDivas } from "./RenderDivas";
 export { default as RenderGreenThumbs } from "./RenderGreenThumbs";
 export { default as RenderPlantNoobs } from "./RenderPlantNoobs";
 export { default as RenderPots } from "./RenderPots";
-// export { default as SingleProducts } from "./SingleProducts";
+export { default as SingleProducts } from "./SingleProducts";

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { getAllPlants } from "../api/index";
 
 
+
 const RenderAllPlants = () => {
     const [allPlants, setAllPlants] = useState([]);
   useEffect(() => {
@@ -42,6 +43,7 @@ const RenderAllPlants = () => {
                     <h2 id="name">{element.name}</h2>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
+                    <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink>
                   </div>
                 );
               }

@@ -55,6 +55,17 @@ export async function RegisterPerson(event) {
     return routines;
 }
 
+
+  export async function getProductById(id) {
+    const response = await fetch(`${API_URL}/products/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const product = await response.json();
+    return product
+  }
+  
 export async function getOrderHistory(userId, token) {
   const response = await fetch(`${API_URL}/orderHistory/${userId}`, 
   {
@@ -80,5 +91,6 @@ export async function getMyInfo (token) {
   console.log(result, "this is from api")
   return result;
 };
+
   
   
