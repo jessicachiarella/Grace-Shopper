@@ -12,7 +12,7 @@ const Register = ({setEmail, setIsLoggedIn}) => {
         setIsLoggedIn(true);
         localStorage.setItem("token", result.token);
         localStorage.setItem("email", result.user.email);
-        setEmail(email);
+        setEmail(result.user.email);
         alert("You have successfully created an account!")
         navigate("/Home");
     }else if(result.error) {
