@@ -54,6 +54,31 @@ export async function RegisterPerson(event) {
     const routines = await response.json();
     return routines;
 }
-  
+
+export async function getOrderHistory(userId, token) {
+  const response = await fetch(`${API_URL}/orderHistory/${userId}`, 
+  {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const history = await response.json();
+  console.log(history, "is this my order history?/??????")
+  return history;
+}
+
+export async function getMyInfo (token) {
+  console.log(token, "tokennnnnnn")
+  const response = await fetch(`${API_URL}/users/me`, {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+  });
+  const result = await response.json();
+  console.log(result, "this is from api")
+  return result;
+};
   
   

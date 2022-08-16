@@ -13,7 +13,7 @@ import {
 //   EditCart,
   Header,
   Home,
-//   Account,
+  Account,
   RenderAllPlants,
   RenderDivas,
   RenderGreenThumbs,
@@ -40,7 +40,7 @@ const App = () => {
 
 
                     <Route path="/users/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
-                    {/* <Route path="/Account" element={<Account/>}/> */}
+                    <Route path="/Account" element={<Account/>}/>
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/Care" element={<Care/>}/>
                     
