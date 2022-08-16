@@ -45,6 +45,15 @@ export async function RegisterPerson(event) {
     }
   }
 
+  export async function getAllPlants() {
+    const response = await fetch(`${API_URL}/products`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const routines = await response.json();
+    return routines;
+}
   
   
   

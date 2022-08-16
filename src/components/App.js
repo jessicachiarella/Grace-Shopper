@@ -14,11 +14,11 @@ import {
   Header,
   Home,
 //   Account,
-//   RenderAllPlants,
-//   RenderDivas,
-//   RenderGreenThumbs,
-//   RenderPlantNoobs,
-//   RenderPots,
+  RenderAllPlants,
+  RenderDivas,
+  RenderGreenThumbs,
+  RenderPlantNoobs,
+  RenderPots,
 //   SingleProducts
 } from "./";
 
@@ -42,32 +42,32 @@ const App = () => {
                     <Route path="/users/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
                     {/* <Route path="/Account" element={<Account/>}/> */}
                     <Route path="/Home" element={<Home/>}/>
-                    {/* 
-                    <Route path="/Cart" element={<Cart/>}/>
+                    
+                    {/* <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/>
+                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                    {/* <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
                 </Routes>
             ):(
                 <Routes>
                     <Route path="/users/Login" element={<Login setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/users/Register" element={<Register setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
-                    {/* 
-                    <Route path="/Cart" element={<Cart/>}/>
+                    
+                    {/* <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Carte" element={<Care/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/>
+                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
+                    {/* <Route path="/SingleProducts" element={<SingleProducts/>}/> */}
                 </Routes>
             )}
 

@@ -44,7 +44,6 @@ productsRouter.get("/:categoryId/products", async (req, res, next) => {
           message: `Category ${categoryId} not found`,
         });
       } else {
-        console.log(product, "this is the product")
         res.send(product);
       }
     } catch ({ name, message }) {

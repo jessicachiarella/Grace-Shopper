@@ -134,7 +134,7 @@ async function createProducts() {
         description: "The Pothos (botanical name: Epipremnum aureum) can be described in one word: chill. It's a perfect plant for a newbie home gardener because it can bounce back from a lot. So if you forget to water your plants (even, um, a lot), this hearty vine will stick around. And you'll know if you're getting it right, because when it gets enough sunlight and water, it grows… fast! Just keep in mind that Pothos plants are toxic to pets. ",
         price: 25,
         categoryId: 1,
-        image_url: "pothos.jpeg",
+        image_url: "/images/pothos.jpeg",
         
       },
       {
@@ -142,7 +142,7 @@ async function createProducts() {
         description: "ZZ Plants (botanical name: Zamioculcas zamiifolia) get their name from their native home of Zanzibar, East Africa. But lucky for us, these plants can thrive far from home, and they look so good people sometimes mistake them for fakes! ZZs love bright, indirect light and grow slowly, so you don't need to worry about repotting any time soon. But keep in mind, they're toxic to human and pets if ingested. ",
         price: 65,
         categoryId: 1,
-        image_url: "zz.jpeg",
+        image_url: "/images/zz.jpeg",
         
       },
       {
@@ -150,7 +150,7 @@ async function createProducts() {
         description: "If you're looking for a spiky showstopper, a Snake plant (botanical name: Dracaena trifasciata), should be on your radar. Not only can it be grown nearly anywhere, from a bright windowsill to a dim corner, but snake plants only need to be watered every few weeks. So chances are, it'll withstand even the most forgetful owner! But keep in mind, Snake plants are toxic to pets.",
         price: 75,
         categoryId: 1,
-        image_url: "snake.jpeg",
+        image_url: "/images/snake.jpeg",
         
       },
       {
@@ -158,7 +158,7 @@ async function createProducts() {
         description: "If you've been on Instagram lately, you've probably seen the platform's favorite plant: the Monstera (botanical name: Monstera deliciosa). And there's a reason… they look amazing! These stylish climbing evergreens usually grow about one or two feet a year — just make sure you choose a deep pot with good drainage. But keep in mind, Monsteras are toxic to pets.",
         price: 150,
         categoryId: 2,
-        image_url: "monstera.jpeg",
+        image_url: "/images/monstera.jpeg",
         
       },
       {
@@ -166,7 +166,7 @@ async function createProducts() {
         description: "If there's a plant that looks exactly like its name, it's the big, floppy leaves of an Elephant ear (botanical name: Colocasia esculenta). This lovely tropical plant does well when it's watered frequently, and prefers a bit of shade to direct sunlight. It's an easy, impressive plant to add to any collection — just don't name it Dumbo!",
         price: 125,
         categoryId: 2,
-        image_url: "elephant.jpeg",
+        image_url: "/images/elephant.jpeg",
         
       },
       {
@@ -174,7 +174,7 @@ async function createProducts() {
         description: "Despite the fact that The Spruce named the Hoya (botanical name: Asclepiadaceae hoya) 'the worst houseplant', we think this low-maintenance beauty is pretty great. And taking care of one is a great way to develop a green thumb. The Hoya prefers bright light, regular watering, and an occasional misting… just a little tending will have this gorgeous plant showing off!",
         price: 40,
         categoryId: 2,
-        image_url: "hoya.jpeg",
+        image_url: "/images/hoya.jpeg",
         
       },
       {
@@ -182,7 +182,7 @@ async function createProducts() {
         description: "The Fiddle Leaf Fig (botanical name: Ficus lyrata) is an indoor tree that oozes style. Its large, violin-shaped leaves are a favorite of interior designers and plant enthusiasts alike! Fiddle Leaf Figs grow quickly (up to ten-feet tall!) and love very warm, wet conditions. But keep in mind, Fiddle Leaf Figs are toxic to pets.",
         price: 400,
         categoryId: 3,
-        image_url: "fiddle.jpeg",
+        image_url: "/images/fiddle.jpeg",
         
       },
       {
@@ -190,7 +190,7 @@ async function createProducts() {
         description: "The Rubber Tree (botanical name: Ficus elastica) starts with pink or coral-colored leaves that then darken into a deep emerald green as it grows. With a bit of care, this gorgeous plant will be the crown jewel of room in your home! They like regular watering, moderate-to-warm temperatures, and long walks on the beach (kidding!). But keep in mind, Rubber Trees are toxic to pets.",
         price: 100,
         categoryId: 3,
-        image_url: "rubber.jpeg",
+        image_url: "/images/rubber.jpeg",
         
       },
       {
@@ -198,7 +198,7 @@ async function createProducts() {
         description: "The Chinese Money Plant (botanical name: Pilea peperomioides) is sometimes called the UFO plant because of its hovering, coin-shaped leaves. We think the Chinese Money plant's unique foliage is its best quality, making it a great addition to your bookshelf, your coffee table, or even the top of your radiator. A good amount of light and regular watering will help this plant thrive!",
         price: 40,
         categoryId: 3,
-        image_url: "peppero.jpeg",
+        image_url: "/images/peppero.jpeg",
         
       },
       {
@@ -206,7 +206,7 @@ async function createProducts() {
         description: "A small clay pot for your small plant friend! Dimensions: 6'x6'x5.5",
         price: 10,
         categoryId: 4,
-        image_url: "smallpot.jpeg",
+        image_url: "/images/smallpot.jpeg",
         
       },
       {
@@ -214,7 +214,7 @@ async function createProducts() {
         description: "A medium clay pot for your medium plant friend! Dimensions: 12.5'x12.5'x11'",
         price: 20,
         categoryId: 4,
-        image_url: "medpot.jpeg",
+        image_url: "/images/medpot.jpeg",
         
       },
       {
@@ -222,7 +222,7 @@ async function createProducts() {
         description: "A large clay pot for your large plant friend! Dimensions: 17'x17'x14.25'",
         price: 30,
         categoryId: 4,
-        image_url: "largepot.jpeg",
+        image_url: "/images/largepot.jpeg",
         
       },
       
