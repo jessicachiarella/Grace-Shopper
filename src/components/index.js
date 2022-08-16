@@ -8,7 +8,7 @@ export { default as Register } from "./users/Register";
 // export { default as Confirmation } from "./Confirmation";
 // export { default as DeleteFromCart } from "./DeleteFromCart";
 // export { default as EditCart } from "./EditCart";
-// export { default as Account } from "./Account";
+export { default as Account } from "./Account";
 export { default as Home } from "./Home";
 export { default as Header } from "./Header";
 export { default as RenderAllPlants } from "./RenderAllPlants";

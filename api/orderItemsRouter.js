@@ -30,20 +30,18 @@ router.post("/:cartId/addToCart", async (req, res, next) => {
     const { orderItemId } = req.params;
     const { quantity } = req.body;
     try {
-      // const orderItem = await getOrderItemById(orderItemId);
-      // const usersCart = await getCartByCartId(orderItem.cartId);
-      // console.log(usersCart.userId, "this is usersCart.userId!!!!!!!!!!!")
-      //   console.log(req.user, "req.user!!!!!!!!!!!")
-      // if (req.user.id != usersCart.userId) {
-      //   res.status(403);
-      //   next({
-      //     name: "CartUpdateError",
-      //     message: "No soup for you!",
-      //   });
-      // } else {
+      const orderItem = await getOrderItemById(orderItemId);
+      const usersCart = await getCartByCartId(orderItem.cartId);
+      if (req.user && req.user.id != usersCart.userId) {
+        res.status(403);
+        next({
+          name: "CartUpdateError",
+          message: "No soup for you!",
+        });
+      } else {
         const updatedQuantity = await updateOrderItem( orderItemId, quantity);
         res.send(updatedQuantity);
-      // }
+      }
     } catch ({ name, message }) {
       next({ name, message });
     }
@@ -54,18 +52,18 @@ router.post("/:cartId/addToCart", async (req, res, next) => {
     const { orderItemId } = req.params;
   
     try {
-    //   const routineAct = await getRoutineActivityById(routineActivityId);
-    //   const routine = await getRoutineById(routineAct.id);
-    //   if (routine.creatorId !== req.user.id) {
-    //     res.status(403);
-    //     next({
-    //       name: "User not found",
-    //       message: `User ${req.user.username} is not allowed to delete ${routine.name}`,
-    //     });
-    //   } else {
+      const orderItem = await getOrderItemById(orderItemId);
+      const usersCart = await getCartByCartId(orderItem.cartId);
+      if (req.user && req.user.id != usersCart.userId) {
+        res.status(403);
+        next({
+          name: "CartUpdateError",
+          message: "No soup for you!",
+        });
+      } else {
        const destroyedItem =  await destroyOrderItem(orderItemId);
         res.send(destroyedItem);
-    //   }
+      }
     } catch ({ name, message }) {
       next({ name, message });
     }

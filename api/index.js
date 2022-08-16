@@ -15,24 +15,15 @@ apiRouter.get('/health', (req, res, next) => {
   });
 });
 
-apiRouter.use('/cart', require('./cartRouter'))
-apiRouter.use('/orderHistory', require('./orderHistoryRouter'))
-apiRouter.use('/orderItems', require('./orderItemsRouter'))
-apiRouter.use('/products', require('./productsRouter'))
-apiRouter.use('/users', require('./usersRouter'))
-
 apiRouter.use(async (req, res, next) => {
   const prefix = 'Bearer ';
   const auth = req.header('Authorization');
-
   if(!auth) {
       next();
   } else if(auth.startsWith(prefix)) {
       const token = auth.slice(prefix.length)
-  
       try {
           const {id} = jwt.verify(token, JWT_SECRET)
-          console.log(id, "This is my id from index.js req user function")
           if (id) {
               req.user = await getUserById(id);
               next();
@@ -54,6 +45,14 @@ apiRouter.use((req, res, next) =>{
    }
    next()
 })
+
+apiRouter.use('/cart', require('./cartRouter'))
+apiRouter.use('/orderHistory', require('./orderHistoryRouter'))
+apiRouter.use('/orderItems', require('./orderItemsRouter'))
+apiRouter.use('/products', require('./productsRouter'))
+apiRouter.use('/users', require('./usersRouter'))
+
+
 
 apiRouter.use((error, req, res, next) => {
   res.send({

@@ -82,13 +82,11 @@ usersRouter.post("/login", async (req, res, next) => {
 
   try {
     const user = await getUserByEmail(email);
-    console.log(user, "THIS IS THE USER")
     const hashedPassword = user.password;
     const passwordsMatch = await bcrypt.compare(password, hashedPassword);
     if (passwordsMatch) {
       const token = jwt.sign(user, JWT_SECRET);
       res.send({ user, message: "you're logged in!", token: `${token}` });
-      console.log(token, "THIS IS THE TOKEN")
     } else {
       next({
         name: "IncorrectCredentialsError",
