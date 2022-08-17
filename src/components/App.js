@@ -9,7 +9,7 @@ import {
 //   AddToCart,
 //   Cart,
   Care,
-//   Confirmation,
+  Checkout,
 //    Congratulations,
 //   DeleteFromCart,
 //   EditCart,
@@ -63,14 +63,17 @@ const App = () => {
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/Care" element={<Care/>}/>
                     
+
                     {/* <Route path="/Cart" element={<Cart cart={cart} setCart={setCart}/>}/> */}
                     {/* <Route path="/Confirmation" element={<Confirmation/>}/> */}
+
                     {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                     <Route path="/RenderPots/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
                     <Route path="/RenderAllPlants/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
                     <Route path="/RenderPlantNoobs/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
@@ -85,13 +88,13 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                     <Route path="/RenderPots/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
                     <Route path="/RenderAllPlants/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
                     <Route path="/RenderPlantNoobs/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
