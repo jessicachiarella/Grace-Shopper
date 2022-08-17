@@ -6,6 +6,7 @@ export { default as Register } from "./users/Register";
 // export { default as Cart } from "./Cart";
 export { default as Care } from "./Care";
 // export { default as Confirmation } from "./Confirmation";
+// export { default as Congratulations } from "./Congratulations";
 // export { default as DeleteFromCart } from "./DeleteFromCart";
 // export { default as EditCart } from "./EditCart";
 export { default as Account } from "./Account";

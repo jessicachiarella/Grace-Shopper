@@ -9,6 +9,7 @@ import {
 //   Cart,
   Care,
 //   Confirmation,
+//    Congratulations,
 //   DeleteFromCart,
 //   EditCart,
   Header,
@@ -46,6 +47,7 @@ const App = () => {
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/> */}
+                    {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
@@ -66,6 +68,7 @@ const App = () => {
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
                     <Route path="/Confirmation" element={<Confirmation/>}/> */}
+                    {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
