@@ -24,7 +24,7 @@ const SingleProducts = () => {
             <h2 id="name">{singleProduct.products.name}</h2>
             <p id="description">{singleProduct.products.description}</p>
             <p id="price">${singleProduct.products.price}</p>
-            <p id="inStock">{singleProduct.products.inStock}</p>
+            {singleProduct.products.inStock ? <p id="inStock">In stock</p> :  <p id="inStock">Out of stock</p> } 
             <img src={singleProduct.products.image_url} width={400} />
             <button id="checkoutButton">Add to Cart</button>
           </div>
