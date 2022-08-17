@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import '../style/App.css';
-import { getMyInfo, getCart } from "../api";
+import { getMyInfo, getUnpurchasedCart } from "../api";
 import {
   Login,
   Logout,
@@ -10,7 +10,7 @@ import {
 //   Cart,
   Care,
   Checkout,
-//    Congratulations,
+   Congratulations,
 //   DeleteFromCart,
 //   EditCart,
   Header,
@@ -40,7 +40,7 @@ const App = () => {
           const token = localStorage.getItem("token")
           const user = await getMyInfo(token);
           const userId = user.id
-          const currentCart = await getCart(userId)
+          const currentCart = await getUnpurchasedCart(userId)
           if(currentCart){
             setCart(currentCart)
           }
