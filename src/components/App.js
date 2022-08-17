@@ -8,7 +8,7 @@ import {
 //   AddToCart,
 //   Cart,
   Care,
-//   Confirmation,
+  Checkout,
 //    Congratulations,
 //   DeleteFromCart,
 //   EditCart,
@@ -46,7 +46,7 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
+                  
                     {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
@@ -58,6 +58,7 @@ const App = () => {
                     <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                 </Routes>
             ):(
                 <Routes>
@@ -67,7 +68,6 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
@@ -79,6 +79,7 @@ const App = () => {
                     <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
                     <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
                 </Routes>
             )}
 
