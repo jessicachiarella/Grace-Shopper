@@ -64,10 +64,13 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
 
+                    <Route path="/Congratulations" element={<Congratulations isLoggedIn={isLoggedIn} />}/> 
+
+
                     {/* <Route path="/Cart" element={<Cart cart={cart} setCart={setCart}/>}/> */}
                     {/* <Route path="/Confirmation" element={<Confirmation/>}/> */}
 
-                    {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
+
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
@@ -88,7 +91,10 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
-                    {/* <Route path="/Congratulations" element={<Congratulations/>}/> */} 
+
+                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
+                    <Route path="/Congratulations" element={<Congratulations isLoggedIn={isLoggedIn} />}/> 
+
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
