@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:4000/api";
+// const API_URL = "http://localhost:4000/api";
+const API_URL = "https://protected-journey-92520.herokuapp.com/api";
 
 export async function LoginPerson(event) {
     try {
