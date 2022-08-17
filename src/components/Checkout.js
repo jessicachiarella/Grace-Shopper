@@ -10,7 +10,6 @@ getCart
   return (
     <>
       <h1>Check Out</h1>
-      <Register setIsLoggedIn={setIsLoggedIn} setEmail={setEmail} />
       <h1>Order Summary</h1>
 
       <button onClick="window.location.href='http://localhost:3000/Congratulations';">Place Order</button>
