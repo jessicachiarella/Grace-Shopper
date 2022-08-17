@@ -90,14 +90,40 @@ export async function getMyInfo (token) {
   return result;
 };
 
-  export async function addToCart(productId){
-    const response = await fetch(`${API_URL}/users/me`, {
+export async function addToCart(cartId, productId, name, quantity, price){
+    const response = await fetch(`${API_URL}/orderItems/${cartId}/addToCart`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
         },
+        body: JSON.stringify({
+          productId: productId,
+          name: name, 
+          quantity: quantity,
+          price: price
+        }),
       });
       const result = await response.json();
       return result; 
-  }
-  
+}
+
+export async function getCart(userId){
+  const response = await fetch(`${API_URL}/cart/${userId}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result; 
+}  
+
+export async function createNewCart(userId){
+  const response = await fetch(`${API_URL}/cart/${userId}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result; 
+}  
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import '../style/App.css';
+import { getMyInfo, getCart } from "../api";
 import {
   Login,
   Logout,
@@ -32,6 +33,22 @@ const App = () => {
         if (localStorage.getItem("token")) {
           setIsLoggedIn(true);
         }
+      }, []);
+
+      async function checkCart(){
+        if (localStorage.getItem("token")) {
+          const token = localStorage.getItem("token")
+          const user = await getMyInfo(token);
+          const userId = user.id
+          const currentCart = await getCart(userId)
+          if(currentCart){
+            setCart(currentCart)
+          }
+        }
+      }
+
+      useEffect(() => {
+      checkCart()
       }, []);
 
       return(

@@ -2,7 +2,7 @@ export { default as App } from "./App";
 export { default as Login } from "./users/Login";
 export { default as Logout } from "./users/Logout";
 export { default as Register } from "./users/Register";
-// export { default as AddToCart } from "./AddToCart";
+export { default as AddToCart } from "./AddToCart";
 // export { default as Cart } from "./Cart";
 export { default as Care } from "./Care";
 export { default as Checkout } from "./Checkout";
