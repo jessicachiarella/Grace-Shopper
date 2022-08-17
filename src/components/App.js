@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import '../style/App.css';
+import { getMyInfo, getCart } from "../api";
 import {
   Login,
   Logout,
@@ -8,8 +9,8 @@ import {
 //   AddToCart,
 //   Cart,
   Care,
-//   Confirmation,
-   Congratulations,
+  Checkout,
+//    Congratulations,
 //   DeleteFromCart,
 //   EditCart,
   Header,
@@ -26,11 +27,28 @@ import {
 const App = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [email, setEmail] = useState("");
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         if (localStorage.getItem("token")) {
           setIsLoggedIn(true);
         }
+      }, []);
+
+      async function checkCart(){
+        if (localStorage.getItem("token")) {
+          const token = localStorage.getItem("token")
+          const user = await getMyInfo(token);
+          const userId = user.id
+          const currentCart = await getCart(userId)
+          if(currentCart){
+            setCart(currentCart)
+          }
+        }
+      }
+
+      useEffect(() => {
+      checkCart()
       }, []);
 
       return(
@@ -45,19 +63,25 @@ const App = () => {
                     <Route path="/Home" element={<Home/>}/>
                     <Route path="/Care" element={<Care/>}/>
                     
-                    {/* <Route path="/Cart" element={<Cart/>}/>
-                    <Route path="/Confirmation" element={<Confirmation/>}/> */}
+
                     <Route path="/Congratulations" element={<Congratulations isLoggedIn={isLoggedIn} />}/> 
+
+
+                    {/* <Route path="/Cart" element={<Cart cart={cart} setCart={setCart}/>}/> */}
+                    {/* <Route path="/Confirmation" element={<Confirmation/>}/> */}
+
+
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    <Route path="/RenderPots/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
+                    <Route path="/RenderPots/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderAllPlants/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderDivas/:id" element={<SingleProducts cart={cart} setCart={setCart}isLoggedIn={isLoggedIn}/>}/>
                 </Routes>
             ):(
                 <Routes>
@@ -67,18 +91,21 @@ const App = () => {
                     <Route path="/Care" element={<Care/>}/>
                     
                     {/* <Route path="/Cart" element={<Cart/>}/>
+
                     <Route path="/Confirmation" element={<Confirmation/>}/> */}
                     <Route path="/Congratulations" element={<Congratulations isLoggedIn={isLoggedIn} />}/> 
+
                     <Route path="/RenderAllPlants" element={<RenderAllPlants/>}/>
                     <Route path="/RenderDivas" element={<RenderDivas/>}/>
                     <Route path="/RenderGreenThumbs" element={<RenderGreenThumbs/>}/>
                     <Route path="/RenderPlantNoobs" element={<RenderPlantNoobs/>}/>
                     <Route path="/RenderPots" element={<RenderPots/>}/>
-                    <Route path="/RenderPots/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderAllPlants/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts/>}/>
-                    <Route path="/RenderDivas/:id" element={<SingleProducts/>}/>
+                    <Route path="/Checkout" element={<Checkout setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>}/>
+                    <Route path="/RenderPots/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderAllPlants/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderPlantNoobs/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderGreenThumbs/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+                    <Route path="/RenderDivas/:id" element={<SingleProducts cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
                 </Routes>
             )}
 

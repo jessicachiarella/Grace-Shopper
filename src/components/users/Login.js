@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { LoginPerson } from "../../api";
+import { Register } from "../index";
 
 const Login = ({ setIsLoggedIn, setEmail }) => {
     const navigate = useNavigate();
@@ -26,7 +27,8 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
       navigate("/users/Register");
     };
   return (
-    <div>
+    <>
+     <div>
       <form onSubmit={handleSubmit}>
         <h1>Log into your Full Bloom account</h1>
         <label className="inputLabels">
@@ -51,6 +53,9 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
         </button>
       </form>
     </div>
+    < Register setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>
+    </>
+   
   );
 }
 export default Login;
