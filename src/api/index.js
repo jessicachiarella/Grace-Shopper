@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost:4000/api";
-const API_URL = "https://protected-journey-92520.herokuapp.com/api";
+const API_URL = "http://localhost:4000/api";
+// const API_URL = "https://protected-journey-92520.herokuapp.com/api";
 
 export async function LoginPerson(event) {
     try {
@@ -90,5 +90,14 @@ export async function getMyInfo (token) {
   return result;
 };
 
-  
+  export async function addToCart(productId){
+    const response = await fetch(`${API_URL}/users/me`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+        },
+      });
+      const result = await response.json();
+      return result; 
+  }
   
