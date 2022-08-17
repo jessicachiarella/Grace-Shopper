@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { getProductById } from "../api/index";
 import { useParams } from "react-router-dom";
+import AddToCart from "./AddToCart"
 
 const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
   const { id } = useParams();
   // console.log(params, "this is our params")
-  console.log(id, "this is our id");
+  // console.log(id, "this is our id");
   const [singleProduct, setSingleProduct] = useState([]);
   useEffect(() => {
     getProductById(id).then((results) => {
-      console.log(results, "this is our results");
+      // console.log(results, "this is our results");
       setSingleProduct(results);
     });
   }, []);
 
-  console.log(singleProduct, "this is singleproduct");
-  console.log(singleProduct.products, "this is the .name");
+  // console.log(singleProduct, "this is singleproduct");
+  // console.log(singleProduct.products, "this is the .name");
   return (
     <div id="SingleProductPage">
       <div>
@@ -30,6 +31,7 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
               <p id="inStock">Out of stock</p>
             )}
             <img src={singleProduct.products.image_url} width={400} />
+            <>
             <AddToCart
               cart={cart}
               setCart={setCart}
@@ -38,6 +40,7 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
               productPrice={singleProduct.products.price}
               isLoggedIn={isLoggedIn}
             />
+            </>
           </div>
         ) : null}
       </div>
