@@ -4,7 +4,9 @@ import { NavLink } from "react-router-dom";
 function Header({ isLoggedIn }) {
   return (
     <header className="NavBar">
-       <a href="http://localhost:3000/home">Full Bloom</a>
+       <NavLink className="FullBloom" to="/Home">
+              Full Bloom
+            </NavLink>
 
       {!isLoggedIn ? (
         <>
