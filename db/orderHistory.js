@@ -22,7 +22,6 @@ async function getOrderHistoryByUserId( userId ){
     JOIN "products" ON "orderItems"."productId" = products.id
     WHERE carts."userId" = $1 AND carts."isPurchased" = true
   `, [userId])
-  console.log(orderHistory, "orderHist from bckend")
   // return await mapHistory(orderHistory)
   return orderHistory
 } catch(error){

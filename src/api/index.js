@@ -75,12 +75,10 @@ export async function getOrderHistory(userId, token) {
     },
   });
   const history = await response.json();
-  console.log(history, "is this my order history?/??????")
   return history;
 }
 
 export async function getMyInfo (token) {
-  console.log(token, "tokennnnnnn")
   const response = await fetch(`${API_URL}/users/me`, {
     headers: {
       "Content-Type": "application/json",
@@ -88,7 +86,6 @@ export async function getMyInfo (token) {
     },
   });
   const result = await response.json();
-  console.log(result, "this is from api")
   return result;
 };
 
