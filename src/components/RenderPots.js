@@ -31,6 +31,7 @@ const RenderPots = () => {
                     <h2 id="name">{element.name}</h2>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
+                    <NavLink to={`/RenderPots/${id}`}>View Product</NavLink>
                   </div>
                 );
               }
