@@ -1,5 +1,5 @@
 const express = require("express");
-const { createCart, getCartById, getAllUnpurchasedCartsByUser } = require("../db");
+const { createCart, getCartById, getAllUnpurchasedCartsByUser, updatePurchaseCart } = require("../db");
 const router = express.Router();
 const { requireUser } = require("./utils");
 console.log("request to /cart is being made")
@@ -32,6 +32,18 @@ router.post("/:userId", async (req, res, next) => {
     try {
       const cart = await createCart({userId});
       res.send(cart);
+    } catch ({ name, message }) {
+      next({ name, message });
+    }
+  });
+
+
+  router.patch("/:cartId", async (req, res, next) => {
+    const { cartId } = req.params;
+    try {
+      const updatedIsPurchased = await updatePurchaseCart(cartId);
+      res.send(updatedIsPurchased);
+  
     } catch ({ name, message }) {
       next({ name, message });
     }

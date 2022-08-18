@@ -110,6 +110,29 @@ async function getAllUnpurchasedCartsByUser(userId) {
   }
 }
 
+async function updatePurchaseCart(cartId) {
+  try {
+
+     {
+      await client.query(
+        `
+          UPDATE carts
+          SET "isPurchased" = true
+          WHERE id=${cartId}
+          RETURNING *;
+        `,
+      );
+      return await getCartByCartId(cartId);
+
+    }
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+
+
 module.exports = {
   createCart,
   getCartById,
@@ -117,4 +140,5 @@ module.exports = {
   // getAllCartsByUser,
   // getAllPurchasedCartsByUser,
   getAllUnpurchasedCartsByUser,
+  updatePurchaseCart
 };
