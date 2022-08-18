@@ -8,6 +8,7 @@ router.get("/:userId", requireUser, async (req, res, next) => {
     let {userId} = req.params
       try {
         const orderHistory = await getOrderHistoryByUserId(userId);
+        console.log(orderHistory, "this is orderHist")
         res.send(orderHistory);
       } catch ({ name, message }) {
         next({ name, message });

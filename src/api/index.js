@@ -76,6 +76,7 @@ export async function getOrderHistory(userId, token) {
     },
   });
   const history = await response.json();
+  console.log(history, "this is history")
   return history;
 }
 
@@ -129,14 +130,29 @@ export async function createNewCart(userId){
 }  
 
 export async function getUnpurchasedCart(userId){
-  console.log(userId, "am i hereeee")
   const response = await fetch(`${API_URL}/cart/unpurchasedCart/${userId}`, {
     headers: {
       "Content-Type": "application/json",
     },
   });
   const result = await response.json();
-  console.log(result, "result from unpurchased api")
+  console.log(result, " this  is the result from unpur")
   return result; 
+
+}  
+
+export async function editIsPurchased(cartId){
+  console.log(cartId, "this is cartId")
+  const response = await fetch(`${API_URL}/cart/${cartId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log("am i here")
+  const result = await response.json();
+  console.log(result, "this is result")
+  return result; 
+
 }  
 
