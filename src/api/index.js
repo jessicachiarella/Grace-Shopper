@@ -128,14 +128,22 @@ export async function createNewCart(userId){
 }  
 
 export async function getUnpurchasedCart(userId){
-  console.log(userId, "am i hereeee")
   const response = await fetch(`${API_URL}/cart/unpurchasedCart/${userId}`, {
     headers: {
       "Content-Type": "application/json",
     },
   });
   const result = await response.json();
-  console.log(result, "result from unpurchased api")
+  return result; 
+}  
+
+export async function editIsPurchased(cartId){
+  const response = await fetch(`${API_URL}/cart/${cartId}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
   return result; 
 }  
 

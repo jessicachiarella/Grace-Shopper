@@ -21,11 +21,6 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
   
       navigate("/Home");
     }
-  
-    const registerButton = async (event) => {
-      event.preventDefault();
-      navigate("/users/Register");
-    };
   return (
     <>
      <div>
@@ -47,9 +42,6 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
         </label>
         <button id="submit" type="Submit">
           Submit
-        </button>
-        <button id="register" type="Submit" onClick={registerButton}>
-          Don't have an account? Create one here.
         </button>
       </form>
     </div>

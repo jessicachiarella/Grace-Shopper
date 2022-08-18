@@ -41,7 +41,6 @@ async function getCartByCartId(id) {
 }
 
 async function getCartById(id) {
-  console.log(id, "am I id??????????????")
   try {
     const {
       rows: carts,
@@ -55,7 +54,6 @@ async function getCartById(id) {
       `,
       [id]
     );
-    console.log(carts, "THIS IS CARTS")
     return await mapProducts(carts);
   } catch (error) {
     throw error;

@@ -1,21 +1,35 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Register from "./users/Register";
+import { editIsPurchased, getUnpurchasedCart } from "../api/index.js";
+import { useNavigate } from "react-router";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
+const Checkout = () => {
+  const navigate = useNavigate();
+  const { userId } = useParams();
+  const [orderSummary, setOrderSummary] = useState([]);
+  
+  useEffect(() => {
+    getUnpurchasedCart(userId).then((results) => {
+    setOrderSummary(results);
+    });
+  }, []);
 
-const Checkout = ({ setIsLoggedIn, setEmail }) => {
-async function onClick() {
-getCart
-}
+  async function handleSubmit(event) {
+    event.preventDefault();
+    navigate("/Congratulations");
+    const result = await editIsPurchased(cartId);
+    return result;
+  }
+
   return (
     <>
       <h1>Check Out</h1>
       <h1>Order Summary</h1>
 
-      <button onClick="window.location.href='http://localhost:3000/Congratulations';">Place Order</button>
-      {/* <button><NavLink className="CategoryLink" to="/Congratulations">Place Order</NavLink></button> */}
-
+      <button id="checkOut" type="Submit" onClick={handleSubmit}>
+        Check Out
+      </button>
     </>
   );
-}
+};
 export default Checkout;
