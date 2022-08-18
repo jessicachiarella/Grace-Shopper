@@ -119,6 +119,7 @@ export async function getCart(userId){
 
 export async function createNewCart(userId){
   const response = await fetch(`${API_URL}/cart/${userId}`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
