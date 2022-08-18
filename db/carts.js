@@ -109,6 +109,8 @@ async function getAllUnpurchasedCartsByUser(userId) {
 }
 
 async function updatePurchaseCart(cartId) {
+
+
   try {
 
      {
@@ -120,8 +122,12 @@ async function updatePurchaseCart(cartId) {
           RETURNING *;
         `,
       );
-      return await getCartByCartId(cartId);
+    
 
+      const result = await getCartByCartId(cartId);
+
+
+return result;
     }
   } catch (error) {
     throw error;

@@ -40,8 +40,10 @@ router.post("/:userId", async (req, res, next) => {
 
   router.patch("/:cartId", async (req, res, next) => {
     const { cartId } = req.params;
+    console.log(cartId, "this is from api Router")
     try {
       const updatedIsPurchased = await updatePurchaseCart(cartId);
+      console.log(updatedIsPurchased, "this is updatedispur")
       res.send(updatedIsPurchased);
   
     } catch ({ name, message }) {

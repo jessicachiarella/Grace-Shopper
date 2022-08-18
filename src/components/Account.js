@@ -20,6 +20,7 @@ const Account = () => {
     if (myInfo.id) {
       getOrderHistory(myInfo.id, token).then((results) => {
         setOrderHistory(results);
+        console.log(results, "this is the results")
       });
     }
   }, [myInfo]);
