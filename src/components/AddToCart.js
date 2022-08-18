@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { addToCart, getMyInfo, getCart, createNewCart } from "../api";
+import { addToCart, getMyInfo, getCart, createNewCart, getProductById } from "../api";
 
 const AddToCart = ({
   cart,
@@ -18,11 +18,18 @@ const AddToCart = ({
         const user = await getMyInfo(token);
         const userId = user.id
         const currentCart = await getCart(userId)
-        console.log(currentCart, "this is cart from front end")
         if (currentCart.cartId) {
-          const newItem = await addToCart(currentCart.cartId, productId, productName, quantity, productPrice);
-          setCart(...cart, newItem);
-          console.log(cart, "is this my cart after setting it to state with new item")
+          const addedItem = await addToCart(currentCart.cartId, productId, productName, quantity, productPrice);
+          console.log(addedItem, "addItem")
+          const cartCopy = {...cart}
+          // if(addedItem.products.id !== cartCopy.products.id){
+          cartCopy.products.push(addedItem)
+          setCart(cartCopy); 
+        // } 
+          // else{
+          //   cartCopy.products.quantity + 1
+          // }
+         
         } else {
           const token = localStorage.getItem("token")
           const user = await getMyInfo(token);
