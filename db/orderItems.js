@@ -26,6 +26,20 @@ async function getOrderItemById (id){
 }
 }
 
+async function getOrderItemByCartId(cartId){
+  try{
+    const {rows:[orderItems]} = await client.query(`
+    SELECT * 
+    FROM "orderItems"
+    WHERE "cartId" = $1;
+    `,[cartId]);
+
+    return orderItems
+} catch(error){
+    throw error
+}
+}
+
 async function addItemToCart(cartId, productId, quantity, price, image_url) {
   try {
     const { rows: orderItems } = await client.query(
@@ -79,5 +93,6 @@ module.exports = {
     getOrderItemById,
     addItemToCart,
     updateOrderItem,
-    destroyOrderItem
+    destroyOrderItem,
+    getOrderItemByCartId
 }
