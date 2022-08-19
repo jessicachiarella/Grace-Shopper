@@ -8,12 +8,12 @@ const Checkout = () => {
   const navigate = useNavigate();
   const [orderSummary, setOrderSummary] = useState([]);
 
+  const token = localStorage.getItem("token")
+  const user = await getMyInfo(token);
+  const userId = user.id
 
   async function getUser(){
-    if (localStorage.getItem("token")) {
-      const token = localStorage.getItem("token")
-      const user = await getMyInfo(token);
-      const userId = user.id
+    if (token) {
       const summary = await getUnpurchasedCart(userId)
       if(summary){
         setOrderSummary(summary)
@@ -27,9 +27,6 @@ const Checkout = () => {
   }, []);
   
   async function checkOrderHistory(){
-    const token = localStorage.getItem("token")
-      const user = await getMyInfo(token);
-      const userId = user.id
       const history = await getOrderHistory(userId, token)
       if(!history.length){
         const result = await createOrderHistory(orderSummary.cartId)

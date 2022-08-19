@@ -2,7 +2,6 @@ const {client} = require("./client");
 
 
 async function createHistory( cartId ) { 
-  console.log(cartId, "this is cartId from my order History function")
     const {rows:[orderHistory]}  = await client.query(`
       INSERT INTO "orderHistory"("cartId")
       VALUES ($1)
