@@ -1,8 +1,8 @@
 const {client} = require("./client");
-const {mapHistory} = require("./helpers")
 
 
-async function createOrderHistory({ cartId }) { 
+async function createHistory( cartId ) { 
+  console.log(cartId, "this is cartId from my order History function")
     const {rows:[orderHistory]}  = await client.query(`
       INSERT INTO "orderHistory"("cartId")
       VALUES ($1)
@@ -23,7 +23,6 @@ async function getOrderHistoryByUserId( userId ){
     WHERE carts."userId" = $1 AND carts."isPurchased" = true
   `, [userId])
   // return a(wait mapHistory(orderHistory)
-  console.log(orderHistory, "this is orderH")
   return orderHistory
 } catch(error){
   throw error
@@ -32,6 +31,6 @@ async function getOrderHistoryByUserId( userId ){
 
 
 module.exports = {
-    createOrderHistory,
+    createHistory,
     getOrderHistoryByUserId
 }

@@ -1,10 +1,13 @@
-import { editIsPurchased, getMyInfo, getUnpurchasedCart } from "../api/index.js";
+import { createOrderHistory, editIsPurchased, getMyInfo, getOrderHistory, getUnpurchasedCart } from "../api/index.js";
 import { useNavigate } from "react-router";
 import React, { useState, useEffect } from "react";
+
+
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [orderSummary, setOrderSummary] = useState([]);
+
 
   async function getUser(){
     if (localStorage.getItem("token")) {
@@ -23,6 +26,16 @@ const Checkout = () => {
     ;
   }, []);
   
+  async function checkOrderHistory(){
+    const token = localStorage.getItem("token")
+      const user = await getMyInfo(token);
+      const userId = user.id
+      const history = await getOrderHistory(userId, token)
+      if(!history.length){
+        const result = await createOrderHistory(orderSummary.cartId)
+        return result;
+      }
+  }
 
 console.log(orderSummary, "orderSumamry")
 
@@ -30,6 +43,7 @@ console.log(orderSummary, "orderSumamry")
     event.preventDefault();
     console.log(orderSummary.cartId, "this is ordersumamry from frontend")
     await editIsPurchased(orderSummary.cartId);
+    await checkOrderHistory();
     navigate("/Congratulations");
 
   }
