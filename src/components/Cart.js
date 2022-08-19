@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import DeleteFromCart from "./DeleteFromCart";
+
 
 const Cart = (params) => {
-  const { isLoggedIn, cart } = params;
+  const { isLoggedIn, cart, setCart } = params;
+  console.log(cart, "this is cart.id")
   const navigate = useNavigate();
-
   async function handleSubmit(event) {
     event.preventDefault();
     navigate("/Checkout");
@@ -28,7 +30,7 @@ const Cart = (params) => {
                   <p id="cartquantity">Quantity: {element.quantity}</p>
                   <p id="cartprice">${element.price}</p>
                   <img src={image} alt={element.cartphoto} width={100} />
-                  {/* <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink> */}
+                  < DeleteFromCart cart={cart} setCart={setCart} />
                 </div>
               );
             })
@@ -57,7 +59,7 @@ const Cart = (params) => {
                       <p id="cartquantity">Quantity: {element.quantity}</p>
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
-                      {/* <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink> */}
+                      < DeleteFromCart cart={cart} setCart={setCart} />
                     </div>
                   );
                 })

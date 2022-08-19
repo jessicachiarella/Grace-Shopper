@@ -137,7 +137,6 @@ export async function getUnpurchasedCart(userId){
     },
   });
   const result = await response.json();
-  console.log(result, " this  is the result from unpur")
   return result; 
 
 }  
@@ -167,3 +166,27 @@ export async function createOrderHistory(cartId){
   });
   const result = await response.json();
   return result; }
+
+  export async function deleteProduct(productId) {
+    console.log("am i here? Delete")
+    const response = await fetch(`${API_URL}/orderItems/${productId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    console.log(result, "this is result from delete api")
+    return result
+  }
+
+  export async function getOrderItemByCart(cartId){
+    const response = await fetch(`${API_URL}/orderItems/${cartId}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    return result; 
+  }
+    
