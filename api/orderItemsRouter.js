@@ -10,7 +10,7 @@ const { requireUser } = require("./utils");
 
 router.post("/:cartId/addToCart", async (req, res, next) => {
     const {cartId} = req.params
-    const { productId, name, quantity, price } = req.body;
+    const { productId, name, quantity, price, image_url } = req.body;
     const itemData = {};
    //question for Ed... how do we keep duplicate products from being added to cart???
   try {
@@ -19,6 +19,7 @@ router.post("/:cartId/addToCart", async (req, res, next) => {
     itemData.name = name;
     itemData.quantity = quantity;
     itemData.price = price;
+    itemData.image_url = image_url
     const orderItem = await createOrderItem(itemData);
     res.send(orderItem);
     } catch ({ name, message }) {

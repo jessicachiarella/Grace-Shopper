@@ -33,6 +33,7 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
                 productId={singleProduct.products.id}
                 productName={singleProduct.products.name}
                 productPrice={singleProduct.products.price}
+                image_url={singleProduct.products.image_url}
                 isLoggedIn={isLoggedIn}
               />
             </>

@@ -23,7 +23,7 @@ function Header({ isLoggedIn }) {
             <NavLink className="Links" to="/users/Login">
               Login
             </NavLink>
-            <NavLink className="Links" to="/users/Cart">
+            <NavLink className="Links" to="/Cart">
               Cart
             </NavLink>
           </div>
@@ -46,7 +46,7 @@ function Header({ isLoggedIn }) {
           <NavLink className="Links" to="/users/Logout">
             Logout
           </NavLink>
-            <NavLink className="Links" to="/users/Cart">
+            <NavLink className="Links" to="/Cart">
               Cart
             </NavLink>
           </div>

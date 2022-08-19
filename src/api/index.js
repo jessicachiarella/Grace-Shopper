@@ -91,7 +91,7 @@ export async function getMyInfo (token) {
   return result;
 };
 
-export async function addToCart(cartId, productId, name, quantity, price){
+export async function addToCart(cartId, productId, name, quantity, price, image_url){
     const response = await fetch(`${API_URL}/orderItems/${cartId}/addToCart`, {
         method: "POST",
         headers: {
@@ -101,7 +101,8 @@ export async function addToCart(cartId, productId, name, quantity, price){
           productId: productId,
           name: name, 
           quantity: quantity,
-          price: price
+          price: price,
+          image_url: image_url
         }),
       });
       const result = await response.json();
