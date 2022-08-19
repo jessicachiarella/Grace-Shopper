@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import DeleteFromCart from "./DeleteFromCart";
+import EditCart from "./EditCart";
 
 
 const Cart = (params) => {
@@ -23,11 +24,12 @@ const Cart = (params) => {
               return (
                 <div
                   id="cartcontainer"
-                  key={element.id}
+                  key={`Cart1: ${element.id}`}
                   className="EachProduct"
                 >
                   <h2 id="cartname">{element.name}</h2>
                   <p id="cartquantity">Quantity: {element.quantity}</p>
+                  < EditCart cart={cart} setCart={setCart} />
                   <p id="cartprice">${element.price}</p>
                   <img src={image} alt={element.cartphoto} width={100} />
                   < DeleteFromCart cart={cart} setCart={setCart} />
@@ -52,11 +54,12 @@ const Cart = (params) => {
                   return (
                     <div
                       id="cartcontainer"
-                      key={element.id}
+                      key={`Cart: ${element.id}`}
                       className="EachProduct"
                     >
                       <h2 id="cartname">{element.productName}</h2>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
+                      < EditCart cart={cart} setCart={setCart} />
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
                       < DeleteFromCart cart={cart} setCart={setCart} />

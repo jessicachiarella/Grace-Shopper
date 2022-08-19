@@ -180,6 +180,22 @@ export async function createOrderHistory(cartId){
     return result
   }
 
+  export async function editQuantity(orderItemId, quantity) {
+    console.log("am i here? Patch")
+    const response = await fetch(`${API_URL}/orderItems/${orderItemId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        quantity: quantity
+      }),
+    });
+    const result = await response.json();
+    console.log(result, "this is result from patch api")
+    return result
+  }
+
   export async function getOrderItemByCart(cartId){
     const response = await fetch(`${API_URL}/orderItems/${cartId}`, {
       headers: {
