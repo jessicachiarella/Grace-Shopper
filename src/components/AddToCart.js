@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import {
   addToCart,
@@ -15,6 +16,7 @@ const AddToCart = ({
   productName,
   productPrice,
   isLoggedIn,
+  image_url
 }) => {
   const [quantity, setQuantity] = useState(1);
   const [inCart, setInCart] = useState(false);
@@ -50,7 +52,8 @@ const AddToCart = ({
           productId,
           productName,
           quantity,
-          productPrice
+          productPrice,
+          image_url
         );
         console.log(addedItem, "addItem");
         const cartCopy = { ...cart };
@@ -64,7 +67,8 @@ const AddToCart = ({
           productId,
           productName,
           quantity,
-          productPrice
+          productPrice,
+          image_url
         );
         newCart.products = [addedItem];
         setCart(newCart);
@@ -75,12 +79,12 @@ const AddToCart = ({
       if (!cart) {
         localStorage.setItem(
           "cart",
-          JSON.stringify([{ id:productId, productName, productPrice, quantity }])
+          JSON.stringify([{ id:productId, productName, productPrice, quantity, image_url }])
         );
         setInCart(true)
       } else {
         const cartProducts = JSON.parse(localStorage.getItem("cart"));
-        cartProducts.push({ id:productId, productName, productPrice, quantity });
+        cartProducts.push({ id:productId, productName, productPrice, quantity, image_url });
         localStorage.setItem("cart", JSON.stringify(cartProducts));
         setInCart(true)
       }
@@ -93,6 +97,9 @@ const AddToCart = ({
         inCart ? (
           <div>
             <p>Item is in your cart!</p>
+            <NavLink className="Links" to="/Cart">
+              Take me to my cart!
+            </NavLink>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
@@ -101,27 +108,6 @@ const AddToCart = ({
             </button>
           </form>
         )
-
-        // isLoggedIn && cart && cart.products && cart.products.length
-        //   ? cart.products.includes(productId)
-        //   cart.products.map((product) => {
-        //     console.log(product, "This is our product after our map function")
-        //       return (product.id === productId ? (
-        //         <div key={`Product${product.id}`}>
-        //           <p>Item is in your cart!</p>
-        //         </div>
-        //       ) : (
-
-        //       );
-        //     })
-        //   : null //local storage
-        //   cart.map((cartProducts) => {
-        //     <form onSubmit={handleSubmit}>
-        //       <button id="addToCart" type="Submit">
-        //         ADD TO CART
-        //       </button>
-        //     </form>;
-        //   })
       }
     </div>
   );

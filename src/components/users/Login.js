@@ -36,7 +36,7 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
         <label className="inputLabels">
           Password
           <input id="password"
-            type="text"
+            type="password"
             placeholder="Your Password Here"
           />
         </label>

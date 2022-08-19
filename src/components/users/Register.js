@@ -24,11 +24,11 @@ const Register = ({setEmail, setIsLoggedIn}) => {
       <form onSubmit={handleSubmit}>
         <h1>Sign Up for an Account</h1>
         <label>Enter Email</label>
-        <input id="emailregister" placeholder="enter your email"></input>
-        <label>Create Password</label>
+        <input id="emailregister" placeholder="enter your email" required></input>
+        <label>Create Password (8 characters minimum)</label>
         <input id="passwordregister" placeholder="create password here"></input>
         <label>Enter Your Full Name</label>
-        <input id="fullnameregister" placeholder="enter your full name"></input>
+        <input id="fullnameregister" placeholder="enter your full name" required></input>
         <button type="submit">Create Account</button>
       </form>
     </div>
