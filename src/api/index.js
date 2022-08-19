@@ -76,7 +76,7 @@ export async function getOrderHistory(userId, token) {
     },
   });
   const history = await response.json();
-  console.log(history, "this is history")
+  console.log(history, "this is history from my api index")
   return history;
 }
 
@@ -156,3 +156,13 @@ export async function editIsPurchased(cartId){
 
 }  
 
+export async function createOrderHistory(cartId){
+    console.log(cartId, "This is my cartId from my create order history function in my api")
+  const response = await fetch(`${API_URL}/orderHistory/${cartId}/addToOrder`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const result = await response.json();
+  return result; }

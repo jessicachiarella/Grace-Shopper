@@ -1,5 +1,4 @@
 async function mapProducts(carts) {
-    console.log(carts, "This is carts within our map functionnnnnnnnnnnnn")
     const object = {}
     for (let row of carts){
         if(!object.isPurchased){
