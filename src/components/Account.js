@@ -37,12 +37,17 @@ const Account = () => {
               if (element) {
                 return (
                   <div id="orderhist" key={`OrderHistory: ${element.id} ${idx}`} className="EachOrder">
-                    {element.categoryId === 4 ? (
+                    {element.categoryId === 4 && element.quantity === 1 ? (
                       <p id="orderName">
                         A {element.name} became a home on{" "}
                         {element.datePurchased}
                       </p>
-                    ) : element.quantity === 1 ? (
+                    ) : element.categoryId === 4 && element.quantity > 1 ? (
+                      <p id="orderName">
+                        {element.quantity} {element.name}s became homes on{" "}
+                        {element.datePurchased}
+                      </p>
+                    ) : element.categoryId < 4 && element.quantity === 1 ? (
                       <p id="orderName">
                         A {element.name} baby joined your family on{" "}
                         {element.datePurchased}

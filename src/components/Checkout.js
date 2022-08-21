@@ -7,6 +7,7 @@ const Checkout = (params) => {
   const navigate = useNavigate();
   const [orderSummary, setOrderSummary] = useState([]);
   const token = localStorage.getItem("token")
+
   async function getUser(){
     if (token) {
       const user = await getMyInfo(token);
@@ -15,30 +16,35 @@ const Checkout = (params) => {
       if(summary){
         setOrderSummary(summary)
       } else {console.log("no unpurhcased") }
+      //added else portion here to handle guest user and set order summary
+    } else {
+      const guestCart = localStorage.getItem("cart");
+      if(guestCart){
+        setOrderSummary(guestCart)
+      } else {console.log("no unpurhcased in local storage") }
     }
   }
   useEffect(() => {
     getUser();
     ;
   }, []);
-  // async function checkOrderHistory(){
-  //   const user = await getMyInfo(token);
-  //   const userId = user.id
-  //     const history = await getOrderHistory(userId, token)
-  //     if(!history.length){
-  //       const result = await createOrderHistory(orderSummary.cartId)
-  //       return result;
-  //     }
-  // }
+  
 console.log(orderSummary, "orderSumamry")
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(orderSummary.cartId, "this is ordersumamry from frontend")
+    if(orderSummary.cartId){
+    console.log(orderSummary.cartId, "this is ordersumamry.cartId from frontend")
     await editIsPurchased(orderSummary.cartId);
     const result = await createOrderHistory(orderSummary.cartId)
     console.log(result, "This is my result")
     setCart({products:[]});
+    console.log(cart, "this is my cart after i supposedly reset it in checkout")
     navigate("/Congratulations");
+    //added else here to set cart and navigate for guest user 
+  } else {
+    setCart(localStorage.setItem("cart", []));
+      navigate("/Congratulations")
+    }
   }
   if (cart && cart.products && cart.products.length) {
     if (isLoggedIn) {

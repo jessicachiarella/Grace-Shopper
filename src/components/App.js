@@ -51,7 +51,7 @@ const App = () => {
 
   useEffect(() => {
     checkCart();
-  }, [isLoggedIn, cart.products && cart.products.length]);
+  }, [isLoggedIn]);
 
   return (
     <div>
