@@ -40,7 +40,6 @@ console.log(orderSummary, "orderSumamry")
     setCart({products:[]});
     console.log(cart, "this is my cart after i supposedly reset it in checkout")
     navigate("/Congratulations");
-    //added else here to set cart and navigate for guest user 
   } else {
     setCart(localStorage.setItem("cart", []));
       navigate("/Congratulations")

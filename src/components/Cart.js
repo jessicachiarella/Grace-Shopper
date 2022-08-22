@@ -14,7 +14,6 @@ const Cart = (params) => {
     navigate("/Checkout");
   }
 
-  //added the checkCart and UseEffect here from App; seems to clear up the cart rendering issue
   async function checkCart() {
     if (localStorage.getItem("token")) {
       const token = localStorage.getItem("token");

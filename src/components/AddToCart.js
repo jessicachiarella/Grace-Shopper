@@ -39,7 +39,6 @@ const AddToCart = ({
     const user = await getMyInfo(token);
     const userId = user.id;
     if (isLoggedIn) {
-      //changed this from getCart to getUnpurchasedCart 
       const currentCart = await getUnpurchasedCart(userId);
       console.log(currentCart, "this is our current unpurchased cart!!");
       if (currentCart.cartId) {
