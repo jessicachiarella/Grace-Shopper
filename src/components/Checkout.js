@@ -2,10 +2,8 @@ import { createOrderHistory, editIsPurchased, getMyInfo, getOrderHistory, getUnp
 import { useNavigate } from "react-router";
 import React, { useState, useEffect } from "react";
 
-
-
 const Checkout = (params) => {
-  const { isLoggedIn, cart } = params;
+  const { isLoggedIn, cart, setCart } = params;
   const navigate = useNavigate();
   const [orderSummary, setOrderSummary] = useState([]);
   const token = localStorage.getItem("token")
@@ -18,36 +16,35 @@ const Checkout = (params) => {
       if(summary){
         setOrderSummary(summary)
       } else {console.log("no unpurhcased") }
+      //added else portion here to handle guest user and set order summary
+    } else {
+      const guestCart = localStorage.getItem("cart");
+      if(guestCart){
+        setOrderSummary(guestCart)
+      } else {console.log("no unpurhcased in local storage") }
     }
   }
- 
   useEffect(() => {
     getUser();
     ;
   }, []);
   
-  async function checkOrderHistory(){
-    const user = await getMyInfo(token);
-    const userId = user.id
-      const history = await getOrderHistory(userId, token)
-      if(!history.length){
-        const result = await createOrderHistory(orderSummary.cartId)
-        return result;
-      }
-  }
-
 console.log(orderSummary, "orderSumamry")
-
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(orderSummary.cartId, "this is ordersumamry from frontend")
+    if(orderSummary.cartId){
+    console.log(orderSummary.cartId, "this is ordersumamry.cartId from frontend")
     await editIsPurchased(orderSummary.cartId);
-    await checkOrderHistory();
+    const result = await createOrderHistory(orderSummary.cartId)
+    console.log(result, "This is my result")
+    setCart({products:[]});
+    console.log(cart, "this is my cart after i supposedly reset it in checkout")
     navigate("/Congratulations");
-
+  } else {
+    setCart(localStorage.setItem("cart", []));
+      navigate("/Congratulations")
+    }
   }
-
-
   if (cart && cart.products && cart.products.length) {
     if (isLoggedIn) {
       return (
@@ -61,7 +58,7 @@ console.log(orderSummary, "orderSumamry")
               return (
                 <div
                   id="cartcontainer"
-                  key={element.id}
+                  key={`Checkout: ${element.id}`}
                   className="EachProduct"
                 >
                   <h2 id="cartname">{element.name}</h2>
@@ -92,17 +89,15 @@ console.log(orderSummary, "orderSumamry")
                   return (
                     <div
                       id="cartcontainer"
-                      key={element.id}
+                      key={`Checkout2: ${element.id}`}
                       className="EachProduct"
                     >
                       <h2 id="cartname">{element.productName}</h2>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
-                      
                       {/* <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink> */}
                     </div>
-                    
                   );
                 })
               ) : (
@@ -121,19 +116,14 @@ console.log(orderSummary, "orderSumamry")
       </div>
     );
   }
-
-
-
   // return (
   //   <>
   //     <h1>Check Out</h1>
   //     <h1>Order Summary</h1>
-
   //     <button id="checkOut" type="Submit" onClick={handleSubmit}>
   //       Check Out
   //     </button>
   //   </>
   // );
-
 };
 export default Checkout;

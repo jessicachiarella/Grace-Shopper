@@ -1,16 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { getMyInfo, getUnpurchasedCart } from "../api/index.js";
 import DeleteFromCart from "./DeleteFromCart";
+import EditCart from "./EditCart";
 
 
 const Cart = (params) => {
   const { isLoggedIn, cart, setCart } = params;
-  console.log(cart, "this is cart.id")
+  console.log(cart, "this is cart")
   const navigate = useNavigate();
   async function handleSubmit(event) {
     event.preventDefault();
     navigate("/Checkout");
   }
+
+  async function checkCart() {
+    if (localStorage.getItem("token")) {
+      const token = localStorage.getItem("token");
+      const user = await getMyInfo(token);
+      const userId = user.id;
+      const currentCart = await getUnpurchasedCart(userId);
+      if (currentCart) {
+        setCart(currentCart);
+      }
+    } else {
+      const products = JSON.parse(localStorage.getItem("cart"));
+      if (products) {
+        setCart({products:products});
+      }
+    }
+  }
+
+  useEffect(() => {
+    checkCart();
+  }, [cart && cart.products && cart.products.length]);
 
   if (cart && cart.products && cart.products.length) {
     if (isLoggedIn) {
@@ -23,11 +46,12 @@ const Cart = (params) => {
               return (
                 <div
                   id="cartcontainer"
-                  key={element.id}
+                  key={`Cart1: ${element.id}`}
                   className="EachProduct"
                 >
                   <h2 id="cartname">{element.name}</h2>
                   <p id="cartquantity">Quantity: {element.quantity}</p>
+                  < EditCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                   <p id="cartprice">${element.price}</p>
                   <img src={image} alt={element.cartphoto} width={100} />
                   < DeleteFromCart cart={cart} setCart={setCart} />
@@ -52,11 +76,12 @@ const Cart = (params) => {
                   return (
                     <div
                       id="cartcontainer"
-                      key={element.id}
+                      key={`Cart: ${element.id}`}
                       className="EachProduct"
                     >
                       <h2 id="cartname">{element.productName}</h2>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
+                      < EditCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
                       < DeleteFromCart cart={cart} setCart={setCart} />

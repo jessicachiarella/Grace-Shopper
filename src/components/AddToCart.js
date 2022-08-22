@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
   addToCart,
   getMyInfo,
-  getCart,
+  getUnpurchasedCart,
   createNewCart,
   getProductById,
 } from "../api";
@@ -39,14 +39,9 @@ const AddToCart = ({
     const user = await getMyInfo(token);
     const userId = user.id;
     if (isLoggedIn) {
-      const currentCart = await getCart(userId);
-      console.log(currentCart, "this is our current cart!!");
-      console.log(currentCart.cartId, "This is my cart Id");
-      console.log(
-        currentCart.isPurchased,
-        "This is my current cart is purchased?"
-      );
-      if (currentCart.cartId && !currentCart.isPurchased) {
+      const currentCart = await getUnpurchasedCart(userId);
+      console.log(currentCart, "this is our current unpurchased cart!!");
+      if (currentCart.cartId) {
         const addedItem = await addToCart(
           currentCart.cartId,
           productId,
