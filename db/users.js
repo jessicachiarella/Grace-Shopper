@@ -40,7 +40,7 @@ async function getUserById(userId) {
   try {
     const { rows: [user] } = await client.query(
       `
-    SELECT id, fullname
+    SELECT id, fullname, email
     FROM users
     WHERE id=$1;
     `,
