@@ -19,7 +19,6 @@ const RenderDivas = () => {
       </h1>
 
       <div>
-        <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <aside className="CategoryLinkBox"><h3>View Plants by Skill Level</h3>
         <NavLink className="CategoryLink" to="/RenderPlantNoobs">
               Plant Noobs
@@ -39,7 +38,7 @@ const RenderDivas = () => {
               if (element.categoryId === 3) {
                 return (
                   <div id="Divas" key={element.id} className="EachProduct">
-                    <h2 id="name">{element.name}</h2>
+                    <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
                     <NavLink to={`/RenderDivas/${id}`}>View Product</NavLink>

@@ -11,19 +11,19 @@ function Header({ isLoggedIn }) {
       {!isLoggedIn ? (
         <>
           <div>
-            <NavLink className="Links" to="/RenderAllPlants">
+            <NavLink className="headerLinks" to="/RenderAllPlants">
               Plants
             </NavLink>
-            <NavLink className="Links" to="/RenderPots">
+            <NavLink className="headerLinks" to="/RenderPots">
               Pots
             </NavLink>
-            <NavLink className="Links" to="/Care">
+            <NavLink className="headerLinks" to="/Care">
               Care
             </NavLink>
-            <NavLink className="Links" to="/users/Login">
+            <NavLink className="headerLinks" to="/users/Login">
               Login
             </NavLink>
-            <NavLink className="Links" to="/Cart">
+            <NavLink className="headerLinks" to="/Cart">
               Cart
             </NavLink>
           </div>
@@ -31,22 +31,22 @@ function Header({ isLoggedIn }) {
       ) : (
         <>
           <div>
-            <NavLink className="Links" to="/RenderAllPlants">
+            <NavLink className="headerLinks" to="/RenderAllPlants">
               Plants
             </NavLink>
-            <NavLink className="Links" to="/RenderPots">
+            <NavLink className="headerLinks" to="/RenderPots">
               Pots
             </NavLink>
-            <NavLink className="Links" to="/Care">
+            <NavLink className="headerLinks" to="/Care">
               Care
             </NavLink>
-            <NavLink className="Links" to="/Account">
+            <NavLink className="headerLinks" to="/Account">
             Account
           </NavLink>
-          <NavLink className="Links" to="/users/Logout">
+          <NavLink className="headerLinks" to="/users/Logout">
             Logout
           </NavLink>
-            <NavLink className="Links" to="/Cart">
+            <NavLink className="headerLinks" to="/Cart">
               Cart
             </NavLink>
           </div>

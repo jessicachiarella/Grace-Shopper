@@ -1,0 +1,83 @@
+/* Rufina */
+@import url('https://fonts.googleapis.com/css2?family=Rufina&display=swap');
+/* Sintony */
+@import url('https://fonts.googleapis.com/css2?family=Sintony&display=swap');
+/* Forum */
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+:root {
+  
+    --blanc: #eae5e1;
+    --sage: #b5c3aa;
+    --vine: #545445;
+    --rose: #d8bfb2;
+    --cab: #995c41;
+    --terrace: #d4c7be;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+
+  /* h1{
+
+  }
+
+  h2{
+
+  }
+
+  h3{
+
+  }
+
+button {
+
+}
+
+p{
+
+}
+
+NavLink{
+
+}
+
+#cartcontainer{
+
+}
+
+.headerLinks{
+
+}
+
+.FullBloom{
+
+}
+
+.CategoryLinkBox{
+
+}
+
+.CategoryLink{
+
+} */
+
+
+
+
+  
+  
+  html {
+    touch-action: manipulation;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .button { color: #c6c583}
+  

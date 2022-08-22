@@ -50,7 +50,7 @@ console.log(orderSummary, "orderSumamry")
       return (
         <div>
           <h1>Check Out</h1>
-          <h1>Order Summary</h1>
+          <h2>Order Summary</h2>
           {cart.products.length ? (
             cart.products.map((element) => {
               const { id, name, quantity, price, image_url } = element;
@@ -61,7 +61,7 @@ console.log(orderSummary, "orderSumamry")
                   key={`Checkout: ${element.id}`}
                   className="EachProduct"
                 >
-                  <h2 id="cartname">{element.name}</h2>
+                  <h3 id="cartname">{element.name}</h3>
                   <p id="cartquantity">Quantity: {element.quantity}</p>
                   <p id="cartprice">${element.price}</p>
                   <img src={image} alt={element.cartphoto} width={100} />
@@ -81,7 +81,7 @@ console.log(orderSummary, "orderSumamry")
         return (
             <div>
               <h1>Check Out</h1>
-              <h1>Order Summary</h1>
+              <h2>Order Summary</h2>
               {cart.products.length ? (
                 cart.products.map((element) => {
                   const { id, productName, quantity, productPrice, image_url } = element;
@@ -92,11 +92,10 @@ console.log(orderSummary, "orderSumamry")
                       key={`Checkout2: ${element.id}`}
                       className="EachProduct"
                     >
-                      <h2 id="cartname">{element.productName}</h2>
+                      <h3 id="cartname">{element.productName}</h3>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
-                      {/* <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink> */}
                     </div>
                   );
                 })
@@ -112,18 +111,10 @@ console.log(orderSummary, "orderSumamry")
   } else {
     return (
       <div>
-        <h1>you have not added any babies to your cart</h1>
+        <h2>You have not added any babies to your cart...</h2>
       </div>
     );
   }
-  // return (
-  //   <>
-  //     <h1>Check Out</h1>
-  //     <h1>Order Summary</h1>
-  //     <button id="checkOut" type="Submit" onClick={handleSubmit}>
-  //       Check Out
-  //     </button>
-  //   </>
-  // );
+
 };
 export default Checkout;

@@ -37,10 +37,11 @@ const EditCart= ({ cart, setCart, isLoggedIn, itemId }) => {
     <div>
       <input
         id="EditQuantity"
-        placeholder="quantity"
         value={quantity}
+        size="2"
         onChange={(event) => {
           setQuantity(event.target.value);
+
         }}
       />
     </div>

@@ -49,7 +49,7 @@ const Cart = (params) => {
                   key={`Cart1: ${element.id}`}
                   className="EachProduct"
                 >
-                  <h2 id="cartname">{element.name}</h2>
+                  <h3 id="cartname">{element.name}</h3>
                   <p id="cartquantity">Quantity: {element.quantity}</p>
                   < EditCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                   <p id="cartprice">${element.price}</p>
@@ -79,7 +79,7 @@ const Cart = (params) => {
                       key={`Cart: ${element.id}`}
                       className="EachProduct"
                     >
-                      <h2 id="cartname">{element.productName}</h2>
+                      <h3 id="cartname">{element.productName}</h3>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
                       < EditCart itemId={element.id} itemQuantity={element.quantity} isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                       <p id="cartprice">${element.productPrice}</p>
@@ -100,7 +100,7 @@ const Cart = (params) => {
   } else {
     return (
       <div>
-        <h1>you have not added any babies to your cart</h1>
+        <h2>you have not added any babies to your cart</h2>
       </div>
     );
   }

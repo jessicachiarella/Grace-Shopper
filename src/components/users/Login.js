@@ -25,7 +25,7 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
     <>
      <div>
       <form onSubmit={handleSubmit}>
-        <h1>Log into your Full Bloom account</h1>
+        <h2>Log into your Full Bloom account</h2>
         <label className="inputLabels">
           Email
           <input id="email"

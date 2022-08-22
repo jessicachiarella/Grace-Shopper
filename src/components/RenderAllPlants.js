@@ -20,7 +20,6 @@ const RenderAllPlants = () => {
       </h1>
 
       <div>
-        <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <aside className="CategoryLinkBox"><h3>View Plants by Skill Level</h3>
         <NavLink className="CategoryLink" to="/RenderPlantNoobs">
               Plant Noobs
@@ -40,7 +39,7 @@ const RenderAllPlants = () => {
               if (element.categoryId !== 4) {
                 return (
                   <div id="PlantNames" key={element.id} className="EachProduct">
-                    <h2 id="name">{element.name}</h2>
+                    <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
                     <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink>

@@ -19,7 +19,6 @@ const RenderPots = () => {
       </h1>
 
       <div>
-        <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <div>
           {allPlants.length ? (
             allPlants.map((element) => {
@@ -28,7 +27,7 @@ const RenderPots = () => {
               if (element.categoryId === 4) {
                 return (
                   <div id="PotNames" key={element.id} className="EachProduct">
-                    <h2 id="name">{element.name}</h2>
+                    <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
                     <NavLink to={`/RenderPots/${id}`}>View Product</NavLink>

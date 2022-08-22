@@ -1,15 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
-
-
-
-
-function Congratulations({isLoggedIn}) {
-
-  
-    return (
+function Congratulations({ isLoggedIn }) {
+  return (
     <main className="Congratulations">
       <div className="congratsText">
         <h1>Congratulations on growing your plant family!</h1>

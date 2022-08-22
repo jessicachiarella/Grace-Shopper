@@ -19,7 +19,6 @@ const RenderGreenThumbs = () => {
       </h1>
 
       <div>
-        <h2 className="PageSubHeader" id="ProfileHeader"></h2>
         <aside className="CategoryLinkBox"><h3>View Plants by Skill Level</h3>
         <NavLink className="CategoryLink" to="/RenderPlantNoobs">
               Plant Noobs
@@ -39,7 +38,7 @@ const RenderGreenThumbs = () => {
               if (element.categoryId === 2) {
                 return (
                   <div id="GreenThumbs" key={element.id} className="EachProduct">
-                    <h2 id="name">{element.name}</h2>
+                    <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
                     <img src={image} alt={element.name} width={200}/>
                     <NavLink to={`/RenderGreenThumbs/${id}`}>View Product</NavLink>
