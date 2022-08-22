@@ -54,7 +54,7 @@ const Cart = (params) => {
                   < EditCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                   <p id="cartprice">${element.price}</p>
                   <img src={image} alt={element.cartphoto} width={100} />
-                  < DeleteFromCart cart={cart} setCart={setCart} />
+                  < DeleteFromCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                 </div>
               );
             })
@@ -81,10 +81,10 @@ const Cart = (params) => {
                     >
                       <h2 id="cartname">{element.productName}</h2>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
-                      < EditCart isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
+                      < EditCart itemId={element.id} itemQuantity={element.quantity} isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                       <p id="cartprice">${element.productPrice}</p>
                       <img src={image} alt={element.cartphoto} width={100} />
-                      < DeleteFromCart cart={cart} setCart={setCart} />
+                      < DeleteFromCart id={element.id} isLoggedIn={isLoggedIn} cart={cart} setCart={setCart} />
                     </div>
                   );
                 })
