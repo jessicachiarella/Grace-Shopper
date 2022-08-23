@@ -173,8 +173,20 @@ NavLink{
   background-color: #545445;
 }
 
-.backgroundImage{
-  background-image: "url('/landing.jpeg')";
+.homeScreen {
+  z-index: 2;
+  background-color: rgba(0,0,0,0);
+  background-image: url('landing.jpeg') ;
+  min-height: 400px; 
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeScreen > a {
+  font-size: xx-large;
+  color: bisque;
 }
 
 .CategoryLinkBox{
