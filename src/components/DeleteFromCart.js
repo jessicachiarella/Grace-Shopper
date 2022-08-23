@@ -25,7 +25,7 @@ const DeleteFromCart= ({ cart, setCart, isLoggedIn, id}) => {
     
   }
   return (
-    <form onSubmit={handleDelete}>
+    <form className="CartText" onSubmit={handleDelete}>
       <button id="deleteButton" type="Submit">
         DELETE
       </button>
