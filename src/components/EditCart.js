@@ -33,9 +33,9 @@ const EditCart= ({ cart, setCart, isLoggedIn, itemId }) => {
     
   }
   return (
-    <form onSubmit={handleEdit}>
-    <div>
-      <input
+    <form className="CartText" onSubmit={handleEdit}>
+    <div className="CartText">
+      <input 
         id="EditQuantity"
         value={quantity}
         size="2"

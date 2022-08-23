@@ -1,15 +1,72 @@
-/* import fonts here */
+/* Rufina */
+@import url('https://fonts.googleapis.com/css2?family=Rufina&display=swap');
+/* Sintony */
+@import url('https://fonts.googleapis.com/css2?family=Sintony&display=swap');
+/* Forum */
+@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+
+:root {
+  
+    --blanc: #eae5e1;
+    --sage: #b5c3aa;
+    --vine: #545445;
+    --rose: #d8bfb2;
+    --cab: #995c41;
+    --terrace: #d4c7be;
+  }
 
 * {
     box-sizing: border-box;
   }
-  
-  :root {
-    /* define variables here */
-    --green: #eae5e1;
-    --red: #b5c3aa; (sage)
-    --blue: #c6c583;
+
+  /* h1{
+
   }
+
+  h2{
+
+  }
+
+  h3{
+
+  }
+
+button {
+
+}
+
+p{
+
+}
+
+NavLink{
+
+}
+
+#cartcontainer{
+
+}
+
+.headerLinks{
+
+}
+
+.FullBloom{
+
+}
+
+.CategoryLinkBox{
+
+}
+
+.CategoryLink{
+
+} */
+
+
+
+
+  
   
   html {
     touch-action: manipulation;

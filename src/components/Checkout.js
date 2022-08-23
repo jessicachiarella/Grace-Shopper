@@ -72,8 +72,8 @@ console.log(orderSummary, "orderSumamry")
           ) : (
             <div> Loading your Plants... </div>
           )}
-          <button id="placeOrder" type="Submit" onClick={handleSubmit}>
-        Place Order
+          <button className="CheckOutButton" type="Submit" onClick={handleSubmit}>
+        PLACE ORDER
       </button>
         </div>
       );
