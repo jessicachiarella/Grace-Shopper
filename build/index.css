@@ -17,25 +17,74 @@
 
 * {
     box-sizing: border-box;
+    background-color: var(--blanc);
   }
 
-  /* h1{
+h1{
+  font-family: Rufina;
+  align-self: center;
+  font-size: 24px;
+  padding-top: 5px;
+
 
   }
 
-  h2{
+h2{
+  font-family: Rufina;
 
   }
 
-  h3{
+h3{
+  font-family: Sintony;
 
   }
 
+
+/* CSS */
 button {
-
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: var(--vine);
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Sintony;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
 }
 
+button:disabled {
+  cursor: default;
+}
+
+button:focus {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
+
+button:hover {
+  background-color: #888881;
+}
+
+
 p{
+
 
 }
 
@@ -44,15 +93,100 @@ NavLink{
 }
 
 #cartcontainer{
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  background-color: var(--cab);
+  margin: 20px;
+
 
 }
 
+.ProductImage{
+  margin-right: 30px;
+
+
+}
+
+.BoxText {
+  background-color: var(--cab);
+  color: var(--blanc);
+
+  
+}
+
+.CartText {
+  background-color: var(--cab);
+  font-size: 16px;
+}
+
+.CheckOutButton {
+  font-size: 16px;
+}
+
+#EditQuantity {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+
+.LinkBox{
+  display: flex;
+  justify-content: space-between;
+  background-color: #545445;
+  padding: 15px;
+  align-items: baseline;
+  padding-bottom: 25px;
+  
+  
+}
+
+
 .headerLinks{
+  background-color: #545445;
+  font-family: Rufina;
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--blanc);
+  padding: 10px;
+
+}
+
+.headerLinks:hover{
+  background-color: #888881;
 
 }
 
 .FullBloom{
+  display: flex;
+  justify-content: center;
+  font-family: Forum;
+  font-size: 48px;
+  text-decoration: none;
+  color: black;
+  margin: 10px;
+  background-color: var(--blanc);
 
+  
+}
+.CartIcon{
+  background-color: #545445;
+}
+
+.homeScreen {
+  z-index: 2;
+  background-color: rgba(0,0,0,0);
+  background-image: url('landing.jpeg') ;
+  min-height: 400px; 
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.homeScreen > a {
+  font-size: xx-large;
+  color: bisque;
 }
 
 .CategoryLinkBox{
@@ -61,7 +195,21 @@ NavLink{
 
 .CategoryLink{
 
-} */
+}
+
+/* ///CART */
+.MainBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+  
+}
+
+.Message {
+  font-family: Rufino;
+}
 
 
 

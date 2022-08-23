@@ -3,13 +3,11 @@ import { NavLink } from "react-router-dom";
 
 function Home() {
     return (
-        <main className="homeScreen">
-            <div className="homeShopAllPlants">
-            <NavLink className="ShopAllPlants" to="/RenderAllPlants">
-              Shop All Plants
+        <div className="homeScreen">
+            <NavLink  className="ShopAllPlants" to="/RenderAllPlants">
+              SHOP ALL PLANTS
             </NavLink>
-            </div>
-        </main>
+        </div>
     )
 }
 
