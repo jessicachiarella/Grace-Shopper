@@ -4,13 +4,15 @@ import { NavLink } from "react-router-dom";
 function Header({ isLoggedIn }) {
   return (
     <header className="NavBar">
-       <NavLink className="FullBloom" to="/Home">
-              Full Bloom
-            </NavLink>
+      <div className="FullBloom">
+        <NavLink className="FullBloom" to="/Home">
+          Full Bloom
+        </NavLink>
+      </div>
 
       {!isLoggedIn ? (
-        <>
-          <div>
+        <div className="LinkBox">
+          <div className="LeftLinks">
             <NavLink className="headerLinks" to="/RenderAllPlants">
               Plants
             </NavLink>
@@ -20,17 +22,19 @@ function Header({ isLoggedIn }) {
             <NavLink className="headerLinks" to="/Care">
               Care
             </NavLink>
+          </div>
+          <div className="RightLinks">
             <NavLink className="headerLinks" to="/users/Login">
               Login
             </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-              Cart
+            <img className="CartIcon" src="/images/cart2.png" width={25}></img>
             </NavLink>
           </div>
-        </>
+          </div>
       ) : (
-        <>
-          <div>
+        <div className="LinkBox">
+          <div className="LeftLinks">
             <NavLink className="headerLinks" to="/RenderAllPlants">
               Plants
             </NavLink>
@@ -40,17 +44,19 @@ function Header({ isLoggedIn }) {
             <NavLink className="headerLinks" to="/Care">
               Care
             </NavLink>
+          </div>
+          <div className="RightLinks">
             <NavLink className="headerLinks" to="/Account">
-            Account
-          </NavLink>
-          <NavLink className="headerLinks" to="/users/Logout">
-            Logout
-          </NavLink>
+              Account
+            </NavLink>
+            <NavLink className="headerLinks" to="/users/Logout">
+              Logout
+            </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-              Cart
+            <img className="CartIcon" src="/images/cart2.png" width={25} ></img>
             </NavLink>
           </div>
-        </>
+          </div>
       )}
     </header>
   );
