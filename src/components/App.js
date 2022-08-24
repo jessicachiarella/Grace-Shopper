@@ -64,7 +64,7 @@ const App = () => {
             }
           />
           <Route path="/Account" element={<Account />} />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/Care" element={<Care />} />
 
           <Route
@@ -144,7 +144,7 @@ const App = () => {
               <Login setIsLoggedIn={setIsLoggedIn} setEmail={setEmail} />
             }
           />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/users/Register"
             element={

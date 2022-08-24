@@ -5,7 +5,7 @@ function Header({ isLoggedIn }) {
   return (
     <header className="NavBar">
       <div className="FullBloom">
-        <NavLink className="FullBloom" to="/Home">
+        <NavLink className="FullBloom" to="/">
           Full Bloom
         </NavLink>
       </div>
