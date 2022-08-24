@@ -24,26 +24,29 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
     }
   return (
     <>
-     <div>
+     <div className="loginContainer">
       <form onSubmit={handleSubmit}>
-        <h1>Log into your Full Bloom account</h1>
+        <h1>Log into Your Account</h1>
+        <div className="loginBox">
         <label className="inputLabels">
-          Email
-          <input id="email"
+          Email:
+          <input className="inputBox" id="email"
             type="text"
             placeholder="Your Email Here"
           />
         </label>
         <label className="inputLabels">
-          Password
-          <input id="password"
+          Password:
+          <input className="inputBox" id="password"
             type="password"
             placeholder="Your Password Here"
           />
         </label>
         <button id="submit" type="Submit">
-          Submit
+          SUBMIT
         </button>
+        </div>
+       
       </form>
     </div>
     < Register setIsLoggedIn={setIsLoggedIn} setEmail={setEmail}/>

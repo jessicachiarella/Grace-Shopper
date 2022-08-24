@@ -91,9 +91,8 @@ const AddToCart = ({
       {
         inCart ? (
           <div>
-            <p>Item is in your cart!</p>
-            <NavLink className="Links" to="/Cart">
-              Take me to my cart!
+            <NavLink className="addToCartLink" to="/Cart">
+              Added to cart! Check it out...
             </NavLink>
           </div>
         ) : (

@@ -25,12 +25,13 @@ const Account = () => {
     }
   }, [myInfo]);
   return (
-    <div id="AllPlantsPage">
+    <div className="AccountPage">
       <h1 className="Accountinfo">Account Information</h1>
-
+    <div className="AccountBox">
       <div>
         <h2 className="orderhisttitle">Your Growing Plant Fam</h2>
-        <div>
+        <div className="OrderHistoryContent">
+          <div>
           {orderHistory.length ? (
             orderHistory.map((element, idx) => {
               const { cartId, datePurchased } = element;
@@ -38,27 +39,27 @@ const Account = () => {
                 return (
                   <div id="orderhist" key={`OrderHistory: ${element.id} ${idx}`} className="EachOrder">
                     {element.categoryId === 4 && element.quantity === 1 ? (
-                      <p id="orderName">
-                        A {element.name} became a home on{" "}
+                      <p className="OrderHistoryText" id="orderName">
+                        *A {element.name} became a home on{" "}
                         {element.datePurchased}
                       </p>
                     ) : element.categoryId === 4 && element.quantity > 1 ? (
-                      <p id="orderName">
-                        {element.quantity} {element.name}s became homes on{" "}
+                      <p className="OrderHistoryText" id="orderName">
+                        *{element.quantity} {element.name}s became homes on{" "}
                         {element.datePurchased}
                       </p>
                     ) : element.categoryId < 4 && element.quantity === 1 ? (
-                      <p id="orderName">
-                        A {element.name} baby joined your family on{" "}
+                      <p className="OrderHistoryText" id="orderName">
+                        *A {element.name} baby joined your family on{" "}
                         {element.datePurchased}
                       </p>
                     ) : (
-                      <p id="orderName">
-                        {element.quantity} {element.name} babies joined your
+                      <p className="OrderHistoryText" id="orderName">
+                        *{element.quantity} {element.name} babies joined your
                         family on {element.datePurchased}
                       </p>
                     )}
-                    <p id="orderprice">
+                    <p className="OrderHistoryText" id="orderprice">
                       {" "}
                       Investment: ${element.price}, Return: <i>Priceless</i>
                     </p>
@@ -71,7 +72,9 @@ const Account = () => {
           )}
         </div>
       </div>
-      <NavLink className="Links" to="/RenderAllPlants">
+      </div>
+      </div>
+      <NavLink className="Links" id="AccountLink" to="/RenderAllPlants">
         Grow your family!
       </NavLink>
     </div>

@@ -28,7 +28,7 @@ function Header({ isLoggedIn }) {
               Login
             </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-            <img className="CartIcon" src="/images/cart2.png" width={25}></img>
+            <img className="CartIcon" src="/images/blanccart.png" width={25}  ></img>
             </NavLink>
           </div>
           </div>
@@ -53,7 +53,7 @@ function Header({ isLoggedIn }) {
               Logout
             </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-            <img className="CartIcon" src="/images/cart2.png" width={25} ></img>
+            <img className="CartIcon" src="/images/blanccart.png" width={25} ></img>
             </NavLink>
           </div>
           </div>

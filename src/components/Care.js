@@ -2,10 +2,10 @@ import React from "react";
 
 function Care() {
   return (
-    <main className="Care">
+    <div className="Care">
+      <h1>How to Love on Your Plant</h1>
       <div className="careText">
-        <h1>How to Love on Your Plant</h1>
-        <p>
+        <p className="careInstructions">
           Doggo ipsum ur givin me a spook heckin vvv doge bork much ruin diet,
           what a nice floof blop dat tungg tho. Corgo big ol fat boi borking
           doggo long bois, yapper thicc. Clouds sub woofer very taste wow waggy
@@ -35,11 +35,11 @@ function Care() {
           long woofer sub woofer very taste wow puggo such treat, very taste wow
           pupper doggo most angery pupper I have ever seen dat tungg tho.
         </p>
-      </div>
       <div className="careImg">
         <img src="/images/care.jpeg" width="500" />
       </div>
-    </main>
+    </div>
+    </div>
   );
 }
 
