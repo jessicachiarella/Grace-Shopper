@@ -16,7 +16,7 @@ router.get("/:userId", requireUser, async (req, res, next) => {
     router.post("/:cartId/addToOrder", async (req, res, next) => {
       const {cartId} = req.params
     try {
-      const orderHistory = await createHistory([cartId]);
+      const orderHistory = await createHistory({cartId});
       res.send(orderHistory);
       } catch ({ name, message }) {
         next({ name, message });

@@ -83,12 +83,6 @@ button:hover {
   background-color: #888881;
 }
 
-
-p{
-
-
-}
-
 NavLink{
 
 }
@@ -132,10 +126,9 @@ NavLink{
   display: flex;
   justify-content: space-between;
   background-color: #545445;
-  padding: 15px;
+  padding: 25px;
   align-items: baseline;
-  padding-bottom: 25px;
-  
+  padding-bottom: 32px;
   
 }
 
@@ -173,6 +166,7 @@ color:#545445
 
 .CartIcon{
   background-color: #545445;
+  margin-bottom: -5px;
 }
 
 .homeScreen {
@@ -308,6 +302,169 @@ color:#545445
   .loginBox {
     display: flex;
     flex-direction: column;
+    padding: 50px;
+    margin: 20px;
+    border: solid 2px var(--cab);
+    border-radius: 25px;
+    max-width: 500px;
+    align-content: center;
+    min-width: 500px;
   }
 
-  
+  .inputLabels{
+    font-family: Sintony;
+    padding-right: 100px;
+    margin-right: 100px;
+  }
+
+  .inputBox{
+    padding:10px;
+    margin: 5px;
+    width: 200px;
+  }
+
+  .loginContainer{
+    display: flex;
+    justify-content: center;
+  }
+.Care{
+  display: flex;
+  flex-direction: column;
+}
+
+.careText{
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 40px;
+}
+
+.careInstructions{
+  margin: 25px;
+  font-size: 25px;
+  font-family: Rufina;
+}
+
+.careImg{
+  margin: 25px;
+}
+
+.AccountBox{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  padding: 50px;
+  margin: 20px;
+  border: solid 2px var(--cab);
+  border-radius: 25px;
+}
+
+#AccountLink{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-family: Rufina;
+  color: var(--vine);
+  font-size: 35px;
+}
+
+#AccountLink:hover{
+  color: #888881;
+}
+
+.OrderHistoryText{
+  font-family: Rufina;
+  font-size: 20px;
+}
+
+.orderhisttitle{
+  font-size: 30px;
+  font-family: Rufina;
+}
+
+.SingleProductBox{
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 1000px;
+  padding-left: 50px;
+}
+
+.SingleProductText{
+  display: flex;
+  flex-direction: column;
+  padding:20px;
+  font-size: 24px;
+}
+
+.productImage{
+  padding: 20px;
+}
+
+.OrderSummary{
+  margin-left: 50px;
+}
+
+.OrderText{
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  padding-left: 20px;
+  font-size: 20px;
+  font-family: Rufina;
+}
+
+.orderProduct{
+display: flex;
+  flex-direction: row;
+  padding: 40px;
+  margin: 20px;
+  border: solid 2px var(--cab);
+  border-radius: 25px;
+ align-content: flex-start;
+}
+
+#OrderImage{
+  display: flex;
+  align-self: flex-start;
+}
+
+.congratsText{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.congratulationsLink{
+  text-decoration: none;
+  color: var(--vine);
+  font-family: Rufina;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.congratulationsLink:hover{
+  color: #888881;
+}
+
+.congratsHeader{
+  font-size: 40px;
+}
+
+.RightLinks{
+  background-color: var(--vine);
+}
+
+.AlertMessage{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.addToCartLink{
+  text-decoration: none;
+  color: var(--vine);
+  font-size: 30px;
+}
+
+.addToCartLink:hover{
+  color: #888881;
+}

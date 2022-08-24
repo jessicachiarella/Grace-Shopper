@@ -20,7 +20,7 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
         alert(result.error);
       }
   
-      navigate("/Home");
+      navigate("/");
     }
   return (
     <>
