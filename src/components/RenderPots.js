@@ -47,7 +47,7 @@ const RenderPots = () => {
                     </div>
                     <img src={image} alt={element.name} width={300}/>
                     <button>
-                    <NavLink className="ProductLink" to={`/RenderPots/${id}`}>View Product</NavLink>
+                    <NavLink className="ProductLink" to={`/RenderPots/${id}`}>VIEW PRODUCT</NavLink>
                     </button> 
                   </div>
                 );

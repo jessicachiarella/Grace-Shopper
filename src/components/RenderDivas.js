@@ -47,7 +47,7 @@ const RenderDivas = () => {
                     </div>
                     <img src={image} alt={element.name} width={300}/>
                     <button>
-                    <NavLink className="ProductLink" to={`/RenderDivas/${id}`}>View Product</NavLink>
+                    <NavLink className="ProductLink" to={`/RenderDivas/${id}`}>VIEW PRODUCT</NavLink>
                     </button>
                   </div>
                 );

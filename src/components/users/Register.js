@@ -20,16 +20,19 @@ const Register = ({setEmail, setIsLoggedIn}) => {
   }
     
   return (
-    <div id="registerBox">
+    <div className="loginContainer" id="registerBox">
       <form onSubmit={handleSubmit}>
         <h1>Sign Up for an Account</h1>
-        <label>Enter Email</label>
-        <input id="emailregister" placeholder="enter your email" required></input>
-        <label>Create Password (8 characters minimum)</label>
-        <input id="passwordregister" placeholder="create password here"></input>
-        <label>Enter Your Full Name</label>
-        <input id="fullnameregister" placeholder="enter your full name" required></input>
-        <button type="submit">Create Account</button>
+        <div className="loginBox">
+        <label className="inputLabels">Enter Email:</label>
+        <input className="inputBox" id="emailregister" placeholder="Enter Your Email" required></input>
+        <label className="inputLabels">Create Password:</label>
+        <input className="inputBox" id="passwordregister" placeholder="8 Characters Minimum"></input>
+        <label className="inputLabels">Enter Your Full Name:</label>
+        <input className="inputBox" id="fullnameregister" placeholder="Enter Your Full Name" required></input>
+        <button type="submit">CREATE ACCOUNT</button>
+        </div>
+       
       </form>
     </div>
   );

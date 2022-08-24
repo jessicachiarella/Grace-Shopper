@@ -47,7 +47,7 @@ const RenderGreenThumbs = () => {
                     </div>
                     <img src={image} alt={element.name} width={300}/>
                     <button>
-                    <NavLink className="ProductLink" to={`/RenderGreenThumbs/${id}`}>View Product</NavLink>
+                    <NavLink className="ProductLink" to={`/RenderGreenThumbs/${id}`}>VIEW PRODUCT</NavLink>
                     </button>
                   </div>
                 );

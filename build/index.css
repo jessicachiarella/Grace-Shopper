@@ -299,9 +299,15 @@ color:#545445
   }
   .TitleContainer{
    display: flex;
+   flex-direction: column;
    justify-content: center;
    flex-wrap: wrap;
-   height: 100vh;
+   align-self: flex-start;
+  }
+
+  .loginBox {
+    display: flex;
+    flex-direction: column;
   }
 
   

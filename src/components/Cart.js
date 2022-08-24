@@ -106,7 +106,7 @@ const Cart = (params) => {
   } else {
     return (
       <div className="MainBox">
-        <h2>you have not added any babies to your cart</h2>
+        <h2 className="AlertMessage">You have not added any babies to your cart...</h2>
       </div>
     );
   }

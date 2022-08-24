@@ -14,9 +14,10 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
 
   return (
     <div id="SingleProductPage">
-      <div>
+      <div className="singleContainer">
         {singleProduct && singleProduct.products ? (
-          <div id="Product" key={singleProduct.products.id}>
+          <div className="SingleProductBox">
+          <div className="SingleProductText" id="Product" key={singleProduct.products.id}>
             <h2 id="name">{singleProduct.products.name}</h2>
             <p id="description">{singleProduct.products.description}</p>
             <p id="price">${singleProduct.products.price}</p>
@@ -25,7 +26,6 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
             ) : (
               <p id="inStock">Out of stock</p>
             )}
-            <img src={singleProduct.products.image_url} width={400} />
             <>
               <AddToCart
                 cart={cart}
@@ -38,6 +38,8 @@ const SingleProducts = ({ cart, setCart, isLoggedIn }) => {
               />
             </>
           </div>
+             <img className="productImage" src={singleProduct.products.image_url} width={400} />
+             </div>
         ) : null}
       </div>
     </div>

@@ -50,21 +50,22 @@ console.log(orderSummary, "orderSumamry")
       return (
         <div>
           <h1>Check Out</h1>
-          <h2>Order Summary</h2>
+          <h2 className="OrderSummary">Order Summary</h2>
           {cart.products.length ? (
             cart.products.map((element) => {
               const { id, name, quantity, price, image_url } = element;
               const image = element.image_url;
               return (
                 <div
-                  id="cartcontainer"
                   key={`Checkout: ${element.id}`}
-                  className="EachProduct"
+                  className="orderProduct"
                 >
+                  <img id="OrderImage" src={image} alt={element.cartphoto} width={200} />
+                  <div className="OrderText">
                   <h3 id="cartname">{element.name}</h3>
                   <p id="cartquantity">Quantity: {element.quantity}</p>
                   <p id="cartprice">${element.price}</p>
-                  <img src={image} alt={element.cartphoto} width={100} />
+                  </div>
                   {/* <NavLink to={`/RenderAllPlants/${id}`}>View Product</NavLink> */}
                 </div>
               );
@@ -81,21 +82,24 @@ console.log(orderSummary, "orderSumamry")
         return (
             <div>
               <h1>Check Out</h1>
-              <h2>Order Summary</h2>
+              <h2 className="OrderSummary">Order Summary</h2>
               {cart.products.length ? (
                 cart.products.map((element) => {
                   const { id, productName, quantity, productPrice, image_url } = element;
                   const image = element.image_url;
                   return (
                     <div
-                      id="cartcontainer"
                       key={`Checkout2: ${element.id}`}
-                      className="EachProduct"
-                    >
+                      className="orderProduct"
+                    > 
+                      <img src={image} alt={element.cartphoto} width={200} />
+                      <div className="OrderText">
                       <h3 id="cartname">{element.productName}</h3>
                       <p id="cartquantity">Quantity: {element.quantity}</p>
                       <p id="cartprice">${element.productPrice}</p>
-                      <img src={image} alt={element.cartphoto} width={100} />
+                      </div>
+                     
+                      
                     </div>
                   );
                 })
