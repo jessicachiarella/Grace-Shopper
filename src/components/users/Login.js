@@ -10,6 +10,7 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
       event.preventDefault();
       const loginEmail = event.target[0].value;
       const result = await LoginPerson(event);
+
       if (result.token) {
         setIsLoggedIn(true);
         localStorage.setItem("token", result.token);
@@ -25,7 +26,7 @@ const Login = ({ setIsLoggedIn, setEmail }) => {
     <>
      <div>
       <form onSubmit={handleSubmit}>
-        <h2>Log into your Full Bloom account</h2>
+        <h1>Log into your Full Bloom account</h1>
         <label className="inputLabels">
           Email
           <input id="email"

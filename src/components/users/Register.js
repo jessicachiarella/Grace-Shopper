@@ -22,7 +22,7 @@ const Register = ({setEmail, setIsLoggedIn}) => {
   return (
     <div id="registerBox">
       <form onSubmit={handleSubmit}>
-        <h2>Sign Up for an Account</h2>
+        <h1>Sign Up for an Account</h1>
         <label>Enter Email</label>
         <input id="emailregister" placeholder="enter your email" required></input>
         <label>Create Password (8 characters minimum)</label>

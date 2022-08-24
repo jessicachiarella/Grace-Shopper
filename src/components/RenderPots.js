@@ -13,7 +13,22 @@ const RenderPots = () => {
 
 
   return (
+    <div>
     <div className="AllPlantsPage">
+    <aside className="CategoryLinkBox">
+          <h3 className="ViewPlants">View Plants by Skill Level</h3>
+          <div className="AsideText">
+        <NavLink className="CategoryLink" to="/RenderPlantNoobs">
+              Plant Noobs
+            </NavLink>
+        <NavLink className="CategoryLink" to="/RenderGreenThumbs">
+              Green Thumbs
+            </NavLink>
+        <NavLink className="CategoryLink" to="/RenderDivas">
+              Divas
+            </NavLink>
+            </div>
+        </aside>
       <div className="TitleContainer">
       <h1 className="PageHeader" id="ProfileHeader">
         Plant Homes
@@ -43,6 +58,7 @@ const RenderPots = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

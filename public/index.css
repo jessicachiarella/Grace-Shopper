@@ -304,4 +304,9 @@ color:#545445
    height: 100vh;
   }
 
+  .loginBox {
+    display: flex;
+    flex-direction: column;
+  }
+
   
