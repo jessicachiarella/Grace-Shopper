@@ -1,18 +1,15 @@
-require("dotenv").config()
+require("dotenv").config();
 const express = require("express");
 const bcrypt = require("bcrypt");
 const usersRouter = express.Router();
 const { JWT_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
-const {createUser,getUserByEmail} = require("../db/index");
-
+const { createUser, getUserByEmail } = require("../db/index");
 
 usersRouter.post("/register", async (req, res, next) => {
   const { email, password, fullname } = req.body;
-  console.log(req.body, "email password fullname")
   try {
     const _user = await getUserByEmail(email);
-    console.log(_user, "get user by email")
 
     if (_user) {
       res.status(401);
@@ -30,10 +27,8 @@ usersRouter.post("/register", async (req, res, next) => {
       const user = await createUser({
         email,
         password,
-        fullname
+        fullname,
       });
-      console.log(user, "FINAL USER")
-      
 
       if (!user) {
         res.status(400);
@@ -52,15 +47,12 @@ usersRouter.post("/register", async (req, res, next) => {
             expiresIn: "1w",
           }
         );
-        console.log(token, "THIS IS THE TOKEN")
-        
 
         res.send({
           user,
           message: "thank you for signing up",
           token,
         });
-        console.log(res.send, "THANK YOU FOR SIGNING UP")
       }
     }
   } catch ({ name, message }) {
@@ -68,10 +60,8 @@ usersRouter.post("/register", async (req, res, next) => {
   }
 });
 
-  
 usersRouter.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(req.body, "email and password")
 
   if (!email || !password) {
     next({
@@ -99,22 +89,19 @@ usersRouter.post("/login", async (req, res, next) => {
 });
 
 usersRouter.get("/me", async (req, res, next) => {
-    try {
-      if (req.user) {
-        res.send(req.user);
-      } else {
-        res
-          .status(401)
-          .send({
-            error: "401 - Unauthorized",
-            message: "You must be logged in to perform this action",
-            name: "UnauthorizedError",
-          });
-      }
-    } catch (error) {
-      next(error);
+  try {
+    if (req.user) {
+      res.send(req.user);
+    } else {
+      res.status(401).send({
+        error: "401 - Unauthorized",
+        message: "You must be logged in to perform this action",
+        name: "UnauthorizedError",
+      });
     }
-  });
+  } catch (error) {
+    next(error);
+  }
+});
 
-  module.exports = usersRouter;
-    
+module.exports = usersRouter;

@@ -1,9 +1,8 @@
-const {client} = require("./client");
-const {mapProducts} = require("./helpers")
-const {addItemToCart} = require("./orderItems")
+const { client } = require("./client");
+const { mapProducts } = require("./helpers");
+const { addItemToCart } = require("./orderItems");
 
 async function createCart({ userId, isPurchased = false }) {
-  console.log(userId, "is this the user iddddd")
   try {
     const {
       rows: [carts],
@@ -33,7 +32,6 @@ async function getCartByCartId(id) {
       `,
       [id]
     );
-    console.log(carts, "THIS IS CARTS FROM GET ID")
     return carts;
   } catch (error) {
     throw error;
@@ -42,9 +40,7 @@ async function getCartByCartId(id) {
 
 async function getCartById(id) {
   try {
-    const {
-      rows: carts,
-    } = await client.query(
+    const { rows: carts } = await client.query(
       `
       SELECT * 
       FROM carts
@@ -109,33 +105,25 @@ async function getAllUnpurchasedCartsByUser(userId) {
 }
 
 async function updatePurchaseCart(cartId) {
-
-
   try {
-
-     {
+    {
       await client.query(
         `
           UPDATE carts
           SET "isPurchased" = true
           WHERE id=${cartId}
           RETURNING *;
-        `,
+        `
       );
-    
 
       const result = await getCartByCartId(cartId);
 
-
-return result;
+      return result;
     }
   } catch (error) {
     throw error;
   }
 }
-
-
-
 
 module.exports = {
   createCart,
@@ -144,5 +132,5 @@ module.exports = {
   // getAllCartsByUser,
   // getAllPurchasedCartsByUser,
   getAllUnpurchasedCartsByUser,
-  updatePurchaseCart
+  updatePurchaseCart,
 };

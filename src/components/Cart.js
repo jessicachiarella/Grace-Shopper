@@ -7,7 +7,6 @@ import EditCart from "./EditCart";
 
 const Cart = (params) => {
   const { isLoggedIn, cart, setCart } = params;
-  console.log(cart, "this is cart")
   const navigate = useNavigate();
   async function handleSubmit(event) {
     event.preventDefault();

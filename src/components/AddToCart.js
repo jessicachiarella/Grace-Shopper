@@ -16,21 +16,19 @@ const AddToCart = ({
   productName,
   productPrice,
   isLoggedIn,
-  image_url
+  image_url,
 }) => {
   const [quantity, setQuantity] = useState(1);
   const [inCart, setInCart] = useState(false);
 
   useEffect(() => {
-    console.log(cart, "CART")
-    if(cart && cart.products && cart.products.length){
-        cart.products.forEach((product) => {
-            if (product.id === productId) {
-              setInCart(true);
-            }
-          });
+    if (cart && cart.products && cart.products.length) {
+      cart.products.forEach((product) => {
+        if (product.id === productId) {
+          setInCart(true);
+        }
+      });
     }
-    
   }, [cart]);
 
   async function handleSubmit(event) {
@@ -40,7 +38,6 @@ const AddToCart = ({
     const userId = user.id;
     if (isLoggedIn) {
       const currentCart = await getUnpurchasedCart(userId);
-      console.log(currentCart, "this is our current unpurchased cart!!");
       if (currentCart.cartId) {
         const addedItem = await addToCart(
           currentCart.cartId,
@@ -50,7 +47,6 @@ const AddToCart = ({
           productPrice,
           image_url
         );
-        console.log(addedItem, "addItem");
         const cartCopy = { ...cart };
         cartCopy.products.push(addedItem);
         setCart(cartCopy);
@@ -74,35 +70,40 @@ const AddToCart = ({
       if (!cart) {
         localStorage.setItem(
           "cart",
-          JSON.stringify([{ id:productId, productName, productPrice, quantity, image_url }])
+          JSON.stringify([
+            { id: productId, productName, productPrice, quantity, image_url },
+          ])
         );
-        setInCart(true)
+        setInCart(true);
       } else {
         const cartProducts = JSON.parse(localStorage.getItem("cart"));
-        cartProducts.push({ id:productId, productName, productPrice, quantity, image_url });
+        cartProducts.push({
+          id: productId,
+          productName,
+          productPrice,
+          quantity,
+          image_url,
+        });
         localStorage.setItem("cart", JSON.stringify(cartProducts));
-        setInCart(true)
+        setInCart(true);
       }
     }
   }
-  console.log(cart, "This is our cart!!");
   return (
     <div>
-      {
-        inCart ? (
-          <div>
-            <NavLink className="addToCartLink" to="/Cart">
-              Added to cart! Check it out...
-            </NavLink>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <button id="addToCart" type="Submit">
-              ADD TO CART
-            </button>
-          </form>
-        )
-      }
+      {inCart ? (
+        <div>
+          <NavLink className="addToCartLink" to="/Cart">
+            Added to cart! Check it out...
+          </NavLink>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <button id="addToCart" type="Submit">
+            ADD TO CART
+          </button>
+        </form>
+      )}
     </div>
   );
 };
