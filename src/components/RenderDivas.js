@@ -13,13 +13,11 @@ const RenderDivas = () => {
 
 
   return (
-    <div id="AllPlantsPage">
-      <h1 className="PageHeader" id="ProfileHeader">
-        DIVAS
-      </h1>
-
-      <div>
-        <aside className="CategoryLinkBox"><h3>View Plants by Skill Level</h3>
+    <div>
+      <div className="AllPlantsPage">
+        <aside className="CategoryLinkBox">
+          <h3 className="ViewPlants">View Plants by Skill Level</h3>
+          <div className="AsideText">
         <NavLink className="CategoryLink" to="/RenderPlantNoobs">
               Plant Noobs
             </NavLink>
@@ -29,8 +27,13 @@ const RenderDivas = () => {
         <NavLink className="CategoryLink" to="/RenderDivas">
               Divas
             </NavLink>
+            </div>
         </aside>
-        <div>
+      <div className="TitleContainer">
+        <h1 className="PageHeader" id="ProfileHeader">
+        Divas
+      </h1>
+      <div className="productRow">
           {allPlants.length ? (
             allPlants.map((element) => {
               const { id, name, price, categoryId, image_url } = element;
@@ -38,10 +41,14 @@ const RenderDivas = () => {
               if (element.categoryId === 3) {
                 return (
                   <div id="Divas" key={element.id} className="EachProduct">
+                    <div className="ProductText">
                     <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
-                    <img src={image} alt={element.name} width={200}/>
-                    <NavLink to={`/RenderDivas/${id}`}>View Product</NavLink>
+                    </div>
+                    <img src={image} alt={element.name} width={300}/>
+                    <button>
+                    <NavLink className="ProductLink" to={`/RenderDivas/${id}`}>View Product</NavLink>
+                    </button>
                   </div>
                 );
               }
@@ -50,6 +57,7 @@ const RenderDivas = () => {
             <div> Loading your Divas... </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

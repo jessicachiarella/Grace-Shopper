@@ -21,10 +21,10 @@
   }
 
 h1{
-  font-family: Rufina;
+  font-family: Sintony;
   align-self: center;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   padding-top: 5px;
 
 
@@ -271,7 +271,8 @@ color:#545445
   }
   .CategoryLinkBox{
     background-color: var(--rose);
-    width: 500px;
+    max-width: 500px;
+    min-width: 200px;
     height: 100vh;
   }
   .AsideText{
@@ -285,12 +286,13 @@ color:#545445
     background-color: var(--rose);
   }
   .CategoryLink{
-    padding-left: 5px;
+    padding-left: 10px;
     padding-bottom: 20px;
     background-color: var(--rose);
     text-decoration: none;
     font-family: Sintony;
     color: var(--vine);
+   
   }
   .CategoryLink:hover{
     text-decoration: underline;

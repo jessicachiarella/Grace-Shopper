@@ -21,9 +21,10 @@
   }
 
 h1{
-  font-family: Rufina;
+  font-family: Sintony;
   align-self: center;
-  font-size: 24px;
+  text-align: center;
+  font-size: 30px;
   padding-top: 5px;
 
 
@@ -96,10 +97,9 @@ NavLink{
   display: flex;
   flex-direction: row;
   padding: 50px;
-  background-color: var(--cab);
   margin: 20px;
-
-
+  border: solid 2px var(--cab);
+  border-radius: 25px;
 }
 
 .ProductImage{
@@ -109,14 +109,12 @@ NavLink{
 }
 
 .BoxText {
-  background-color: var(--cab);
-  color: var(--blanc);
+  color: black;
 
   
 }
 
 .CartText {
-  background-color: var(--cab);
   font-size: 16px;
 }
 
@@ -237,5 +235,73 @@ color:#545445
     width: 100vw;
   }
   
-  .button { color: #c6c583}
+
+  .AllPlantsPage{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .productRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  .EachProduct{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  .ProductText{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: sintony;
+    align-items: baseline;
+  }
+  .ProductLink{
+    align-self: center;
+    text-decoration: none;
+    background-color: #545445;
+    color: #fff;
+  }
+  .ProductLink:hover{
+    background-color: #888881;
+  }
+  .CategoryLinkBox{
+    background-color: var(--rose);
+    max-width: 500px;
+    min-width: 200px;
+    height: 100vh;
+  }
+  .AsideText{
+    display: flex;
+    flex-direction: column;
+  }
+  .ViewPlants{
+    text-align: center;
+    padding: 7px;
+    padding-bottom: 20px;
+    background-color: var(--rose);
+  }
+  .CategoryLink{
+    padding-left: 10px;
+    padding-bottom: 20px;
+    background-color: var(--rose);
+    text-decoration: none;
+    font-family: Sintony;
+    color: var(--vine);
+   
+  }
+  .CategoryLink:hover{
+    text-decoration: underline;
+  }
+  .TitleContainer{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   height: 100vh;
+  }
+
   

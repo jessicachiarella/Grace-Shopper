@@ -13,14 +13,12 @@ const RenderGreenThumbs = () => {
 
 
   return (
-    <div id="AllPlantsPage">
-      <h1 className="PageHeader" id="ProfileHeader">
-        GREEN THUMBS
-      </h1>
-
-      <div>
-        <aside className="CategoryLinkBox"><h3>View Plants by Skill Level</h3>
-        <NavLink className="CategoryLink" to="/RenderPlantNoobs">
+    <div>
+      <div className="AllPlantsPage">
+        <aside className="CategoryLinkBox">
+          <h3 className="ViewPlants">View Plants by Skill Level</h3>
+          <div className="AsideText">
+          <NavLink className="CategoryLink" to="/RenderPlantNoobs">
               Plant Noobs
             </NavLink>
         <NavLink className="CategoryLink" to="/RenderGreenThumbs">
@@ -29,8 +27,13 @@ const RenderGreenThumbs = () => {
         <NavLink className="CategoryLink" to="/RenderDivas">
               Divas
             </NavLink>
+          </div>
         </aside>
-        <div>
+        <div className="TitleContainer">
+        <h1 className="PageHeader" id="ProfileHeader">
+        Green Thumbs
+      </h1>
+        <div className="productRow">
           {allPlants.length ? (
             allPlants.map((element) => {
               const { id, name, price, categoryId, image_url } = element;
@@ -38,10 +41,14 @@ const RenderGreenThumbs = () => {
               if (element.categoryId === 2) {
                 return (
                   <div id="GreenThumbs" key={element.id} className="EachProduct">
+                    <div className="ProductText">
                     <h3 id="name">{element.name}</h3>
                     <p id="price">${element.price}</p>
-                    <img src={image} alt={element.name} width={200}/>
-                    <NavLink to={`/RenderGreenThumbs/${id}`}>View Product</NavLink>
+                    </div>
+                    <img src={image} alt={element.name} width={300}/>
+                    <button>
+                    <NavLink className="ProductLink" to={`/RenderGreenThumbs/${id}`}>View Product</NavLink>
+                    </button>
                   </div>
                 );
               }
@@ -49,6 +56,7 @@ const RenderGreenThumbs = () => {
           ) : (
             <div> Loading your Green Thumbs... </div>
           )}
+        </div>
         </div>
       </div>
     </div>
