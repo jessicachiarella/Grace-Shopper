@@ -4,7 +4,7 @@ const {
   createCategory,
   createCart,
   createOrderItem,
-  createOrderHistory,
+  createHistory,
 } = require("./");
 const { client } = require("./client");
 
@@ -351,10 +351,11 @@ async function createOrderHistories() {
         cartId: 2,
       },
     ];
+    console.log(orderHistoryToCreate, "this is order history to create")
     const orderHistory = await Promise.all(
-      orderHistoryToCreate.map(createOrderHistory)
+      
+      orderHistoryToCreate.map(createHistory)
     );
-
     console.log("orderHistory created!");
     console.log(orderHistory);
 
