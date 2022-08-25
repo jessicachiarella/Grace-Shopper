@@ -74,6 +74,7 @@ const Cart = (params) => {
                       isLoggedIn={isLoggedIn}
                       cart={cart}
                       setCart={setCart}
+                      id={element.id}
                     />
                   </div>
                 </div>
