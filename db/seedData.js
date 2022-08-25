@@ -351,9 +351,8 @@ async function createOrderHistories() {
         cartId: 2,
       },
     ];
-    console.log(orderHistoryToCreate, "this is order history to create")
+    console.log(orderHistoryToCreate, "this is order history to create");
     const orderHistory = await Promise.all(
-      
       orderHistoryToCreate.map(createHistory)
     );
     console.log("orderHistory created!");

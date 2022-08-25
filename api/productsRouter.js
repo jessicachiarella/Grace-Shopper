@@ -1,8 +1,10 @@
 const express = require("express");
 const productsRouter = express.Router();
-const { getAllProducts, getProductById, getProductsByCategoryId } = require("../db");
-
-//GET all products
+const {
+  getAllProducts,
+  getProductById,
+  getProductsByCategoryId,
+} = require("../db");
 
 productsRouter.get("/", async (req, res, next) => {
   try {
@@ -12,8 +14,6 @@ productsRouter.get("/", async (req, res, next) => {
     next(error);
   }
 });
-
-//GET product by id
 
 productsRouter.get("/:productId", async (req, res, next) => {
   const { productId } = req.params;
@@ -35,20 +35,20 @@ productsRouter.get("/:productId", async (req, res, next) => {
 });
 
 productsRouter.get("/:categoryId/products", async (req, res, next) => {
-    const {categoryId}  = req.params;
-    try {
-      const product = await getProductsByCategoryId(categoryId);
-      if (!product.length) {
-        next({
-          name: "CategoryDoesn'tExistError",
-          message: `Category ${categoryId} not found`,
-        });
-      } else {
-        res.send(product);
-      }
-    } catch ({ name, message }) {
-      next({ name, message });
+  const { categoryId } = req.params;
+  try {
+    const product = await getProductsByCategoryId(categoryId);
+    if (!product.length) {
+      next({
+        name: "CategoryDoesn'tExistError",
+        message: `Category ${categoryId} not found`,
+      });
+    } else {
+      res.send(product);
     }
-  });
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
 
 module.exports = productsRouter;

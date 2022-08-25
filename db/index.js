@@ -1,4 +1,3 @@
-// const client = require('./client')
 module.exports = {
   ...require('./client'),
   ...require('./categories'),

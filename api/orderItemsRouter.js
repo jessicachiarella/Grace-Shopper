@@ -3,19 +3,14 @@ const {
   createOrderItem,
   updateOrderItem,
   destroyOrderItem,
-  getOrderItemById,
-  getCartByCartId,
-  getOrderHistoryByUserId,
-  getOrderItemByCartId
+  getOrderItemByCartId,
 } = require("../db");
 const router = express.Router();
-const { requireUser } = require("./utils");
 
 router.post("/:cartId/addToCart", async (req, res, next) => {
   const { cartId } = req.params;
   const { productId, name, quantity, price, image_url } = req.body;
   const itemData = {};
-  //question for Ed... how do we keep duplicate products from being added to cart???
   try {
     itemData.cartId = cartId;
     itemData.productId = productId;
@@ -30,7 +25,6 @@ router.post("/:cartId/addToCart", async (req, res, next) => {
   }
 });
 
-//need to figure out how to verify a logged in user and then handle when a guest user is updating their cart
 router.patch("/:orderItemId", async (req, res, next) => {
   const { orderItemId } = req.params;
   const { quantity } = req.body;
@@ -42,7 +36,6 @@ router.patch("/:orderItemId", async (req, res, next) => {
   }
 });
 
-//same as above, need to handle user authentication and guest user for delete
 router.delete("/:orderItemId", async (req, res, next) => {
   const { orderItemId } = req.params;
 
@@ -55,13 +48,13 @@ router.delete("/:orderItemId", async (req, res, next) => {
 });
 
 router.get("/:cartId", async (req, res, next) => {
-  let {cartId} = req.params
-    try {
-      const orderItem = await getOrderItemByCartId(cartId);
-      res.send(orderItem);
-    } catch ({ name, message }) {
-      next({ name, message });
-    }
-  });
+  let { cartId } = req.params;
+  try {
+    const orderItem = await getOrderItemByCartId(cartId);
+    res.send(orderItem);
+  } catch ({ name, message }) {
+    next({ name, message });
+  }
+});
 
 module.exports = router;

@@ -28,10 +28,14 @@ function Header({ isLoggedIn }) {
               Login
             </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-            <img className="CartIcon" src="/images/blanccart.png" width={25}  ></img>
+              <img
+                className="CartIcon"
+                src="/images/blanccart.png"
+                width={25}
+              ></img>
             </NavLink>
           </div>
-          </div>
+        </div>
       ) : (
         <div className="LinkBox">
           <div className="LeftLinks">
@@ -53,10 +57,14 @@ function Header({ isLoggedIn }) {
               Logout
             </NavLink>
             <NavLink className="headerLinks" to="/Cart">
-            <img className="CartIcon" src="/images/blanccart.png" width={25} ></img>
+              <img
+                className="CartIcon"
+                src="/images/blanccart.png"
+                width={25}
+              ></img>
             </NavLink>
           </div>
-          </div>
+        </div>
       )}
     </header>
   );
