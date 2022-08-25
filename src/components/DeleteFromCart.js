@@ -12,8 +12,16 @@ const DeleteFromCart = ({ cart, setCart, isLoggedIn, id }) => {
     if (isLoggedIn) {
       const user = await getMyInfo(localStorage.getItem("token"));
       if (localStorage.getItem("email") === user.email) {
-        const orderItem = await getOrderItemByCart(cart.cartId);
-        await deleteProduct(orderItem.id);
+        const orderItems = await getOrderItemByCart(cart.cartId);
+        const [item] = orderItems.filter((orderItem) => {
+          if (orderItem.productId === id) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        console.log(item, "This is my item in delete")
+        await deleteProduct(item.id);
         const result = await getUnpurchasedCart(user.id);
         setCart(result);
       } else {

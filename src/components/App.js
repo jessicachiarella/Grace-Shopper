@@ -23,7 +23,7 @@ import {
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
-  const [cart, setCart] = useState({products:[]});
+  const [cart, setCart] = useState({ products: [] });
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -43,7 +43,7 @@ const App = () => {
     } else {
       const products = JSON.parse(localStorage.getItem("cart"));
       if (products) {
-        setCart({products:products});
+        setCart({ products: products });
       }
     }
   }
@@ -72,7 +72,12 @@ const App = () => {
             element={<Congratulations isLoggedIn={isLoggedIn} />}
           />
 
-          <Route path="/Cart" element={<Cart cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+          <Route
+            path="/Cart"
+            element={
+              <Cart cart={cart} setCart={setCart} isLoggedIn={isLoggedIn} />
+            }
+          />
 
           <Route path="/RenderAllPlants" element={<RenderAllPlants />} />
           <Route path="/RenderDivas" element={<RenderDivas />} />
@@ -82,7 +87,13 @@ const App = () => {
           <Route
             path="/Checkout"
             element={
-              <Checkout cart={cart} setCart={setCart} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setEmail={setEmail} />
+              <Checkout
+                cart={cart}
+                setCart={setCart}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                setEmail={setEmail}
+              />
             }
           />
           <Route
@@ -153,7 +164,12 @@ const App = () => {
           />
           <Route path="/Care" element={<Care />} />
 
-          <Route path="/Cart" element={<Cart cart={cart} setCart={setCart} isLoggedIn={isLoggedIn}/>}/>
+          <Route
+            path="/Cart"
+            element={
+              <Cart cart={cart} setCart={setCart} isLoggedIn={isLoggedIn} />
+            }
+          />
           <Route
             path="/Congratulations"
             element={<Congratulations isLoggedIn={isLoggedIn} />}
@@ -167,7 +183,13 @@ const App = () => {
           <Route
             path="/Checkout"
             element={
-              <Checkout cart={cart} setCart={setCart} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setEmail={setEmail} />
+              <Checkout
+                cart={cart}
+                setCart={setCart}
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                setEmail={setEmail}
+              />
             }
           />
           <Route
