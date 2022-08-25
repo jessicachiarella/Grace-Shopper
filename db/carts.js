@@ -1,6 +1,5 @@
 const { client } = require("./client");
 const { mapProducts } = require("./helpers");
-const { addItemToCart } = require("./orderItems");
 
 async function createCart({ userId, isPurchased = false }) {
   try {
@@ -55,35 +54,6 @@ async function getCartById(id) {
     throw error;
   }
 }
-//Need to write helper function that maps through these
-
-// async function getAllCartsByUser({ userId }) {
-//   try {
-//     const {rows:carts} = await client.query(`
-//      SELECT *
-//      FROM carts
-//      JOIN users.id ON carts."userId"=users.id
-//      WHERE "userId" = $1
-//     `, [userId])
-//     return carts
-//   } catch(error){
-//     throw error
-//   }
-// }
-
-// async function getAllPurchasedCartsByUser({ userId }) {
-//   try {
-//     const {rows:carts} = await client.query(`
-//      SELECT *
-//      FROM carts
-//      JOIN users ON carts."userId"=users.id
-//      WHERE "userId" = $1 AND "isPurchased"=true
-//     `, [userId])
-//     return await addItemToCart(carts)
-//   } catch(error){
-//     throw error
-//   }
-// }
 
 async function getAllUnpurchasedCartsByUser(userId) {
   try {
@@ -129,8 +99,6 @@ module.exports = {
   createCart,
   getCartById,
   getCartByCartId,
-  // getAllCartsByUser,
-  // getAllPurchasedCartsByUser,
   getAllUnpurchasedCartsByUser,
   updatePurchaseCart,
 };

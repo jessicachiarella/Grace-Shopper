@@ -28,9 +28,7 @@ const RenderAllPlants = () => {
           </div>
         </aside>
         <div className="TitleContainer">
-          <h1 id="ProfileHeader">
-            Plant Babies
-          </h1>
+          <h1 id="ProfileHeader">Plant Babies</h1>
           <div className="productRow">
             {allPlants.length ? (
               allPlants.map((element) => {

@@ -6,7 +6,6 @@ import {
   getMyInfo,
   getUnpurchasedCart,
   createNewCart,
-  getProductById,
 } from "../api";
 
 const AddToCart = ({

@@ -35,10 +35,10 @@ function Care() {
           long woofer sub woofer very taste wow puggo such treat, very taste wow
           pupper doggo most angery pupper I have ever seen dat tungg tho.
         </p>
-      <div className="careImg">
-        <img src="/images/care.jpeg" width="500" />
+        <div className="careImg">
+          <img src="/images/care.jpeg" width="500" />
+        </div>
       </div>
-    </div>
     </div>
   );
 }

@@ -2,7 +2,6 @@ import {
   createOrderHistory,
   editIsPurchased,
   getMyInfo,
-  getOrderHistory,
   getUnpurchasedCart,
 } from "../api/index.js";
 import { useNavigate } from "react-router";
@@ -24,7 +23,6 @@ const Checkout = (params) => {
       } else {
         console.log("no unpurchased");
       }
-      //added else portion here to handle guest user and set order summary
     } else {
       const guestCart = localStorage.getItem("cart");
       if (guestCart) {

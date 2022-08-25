@@ -16,15 +16,15 @@ const RenderPlantNoobs = () => {
         <aside className="CategoryLinkBox">
           <h3 className="ViewPlants">View Plants by Skill Level</h3>
           <div className="AsideText">
-          <NavLink className="CategoryLink" to="/RenderPlantNoobs">
-            Plant Noobs
-          </NavLink>
-          <NavLink className="CategoryLink" to="/RenderGreenThumbs">
-            Green Thumbs
-          </NavLink>
-          <NavLink className="CategoryLink" to="/RenderDivas">
-            Divas
-          </NavLink>
+            <NavLink className="CategoryLink" to="/RenderPlantNoobs">
+              Plant Noobs
+            </NavLink>
+            <NavLink className="CategoryLink" to="/RenderGreenThumbs">
+              Green Thumbs
+            </NavLink>
+            <NavLink className="CategoryLink" to="/RenderDivas">
+              Divas
+            </NavLink>
           </div>
         </aside>
         <div className="TitleContainer">
@@ -44,15 +44,18 @@ const RenderPlantNoobs = () => {
                       className="EachProduct"
                     >
                       <div className="ProductText">
-                      <h3 id="name">{element.name}</h3>
-                      <p id="price">${element.price}</p>
+                        <h3 id="name">{element.name}</h3>
+                        <p id="price">${element.price}</p>
                       </div>
                       <img src={image} alt={element.name} width={300} />
                       <button>
-                      <NavLink className="ProductLink" to={`/RenderPlantNoobs/${id}`}>
-                        VIEW PRODUCT
-                      </NavLink>
-                        </button>
+                        <NavLink
+                          className="ProductLink"
+                          to={`/RenderPlantNoobs/${id}`}
+                        >
+                          VIEW PRODUCT
+                        </NavLink>
+                      </button>
                     </div>
                   );
                 }
